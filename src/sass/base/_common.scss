@@ -43,3 +43,17 @@ body {
   background-color:$body-main-color;
 
 }
+
+// Притискаємо футер донизу
+html,
+body {
+  height: 100%;
+}
+.wrap {
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+main {
+  flex: 1 1 auto;
+}
