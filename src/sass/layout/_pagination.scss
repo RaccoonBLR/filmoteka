@@ -7,18 +7,18 @@ $color__pagination--accent: #554987;
 
 .tui-pagination .tui-is-selected,
 .tui-pagination strong {
-    background: $color__object--accent;
-    border-color: $color__object--accent;
+    background: $color__pagination--accent;
+    border-color: $color__pagination--accent;
 }
 
 .tui-pagination .tui-first-child.tui-is-selected {
-    border-left-color: $color__object--accent;
+    border-left-color: $color__pagination--accent;
 }
 
 .tui-pagination .tui-last-child.tui-is-selected {
-    border-right-color: $color__object--accent;
+    border-right-color: $color__pagination--accent;
 }
 
 .tui-pagination .tui-is-selected:hover {
-    background-color: $color__object--accent;
+    background-color: $color__pagination--accent;
 }
