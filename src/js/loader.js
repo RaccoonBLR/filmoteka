@@ -1,4 +1,4 @@
-class Loader {
+export class Loader {
   constructor() {
     this.loaderEl = document.createElement('div');
     this.loaderEl.classList.add('loader');
