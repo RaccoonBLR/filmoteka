@@ -1,6 +1,5 @@
 @import '~node_modules/modern-normalize/modern-normalize.css';
 
-
 h1,
 h2,
 h3,
@@ -34,14 +33,13 @@ li {
 
 body {
   // overflow: overlay;
-	font-family: 'Roboto', sans-serif;
+  font-family: 'Roboto', sans-serif;
   font-style: normal;
   font-weight: 500;
   font-size: 12px;
   line-height: 1.33;
   color: $primary-text-color;
-  background-color:$body-main-color;
-
+  background-color: $body-main-color;
 }
 
 // Притискаємо футер донизу
