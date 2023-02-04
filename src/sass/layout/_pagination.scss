@@ -1,0 +1,24 @@
+$color__pagination--accent: #554987;
+
+.tui-pagination {
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
+
+.tui-pagination .tui-is-selected,
+.tui-pagination strong {
+    background: $color__pagination--accent;
+    border-color: $color__pagination--accent;
+}
+
+.tui-pagination .tui-first-child.tui-is-selected {
+    border-left-color: $color__pagination--accent;
+}
+
+.tui-pagination .tui-last-child.tui-is-selected {
+    border-right-color: $color__pagination--accent;
+}
+
+.tui-pagination .tui-is-selected:hover {
+    background-color: $color__pagination--accent;
+}
