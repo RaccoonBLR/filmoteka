@@ -1,6 +1,31 @@
 .header {
-  background-image: url(../images/header-home/header-background.jpg);
-  height: 216px;
+  height: 230px;
+  background-size: cover;
+  background-image: url(../images/header-home/abstract-background-with-red-lines-mobile.jpg);
+
+  @media screen and (min-width: 768px) {
+    height: 216px;
+    background-image: url(../images/header-home/abstract-background-with-red-lines-tablet.jpg);
+  }
+
+  @media screen and (min-width: 1280px) {
+    background-image: url(../images/header-home/abstract-background-with-red-lines-desktop.jpg);
+  }
+}
+
+.container--header {
+  padding-top: 42px;
+  padding-bottom: 44px;
+
+  @media screen and (min-width: 768px) {
+    padding-top: 40px;
+    padding-bottom: 45px;
+  }
+
+  @media screen and (min-width: 1280px) {
+    padding-top: 40px;
+    padding-bottom: 44px;
+  }
 }
 
 .header__nav {
@@ -8,7 +33,14 @@
   align-items: center;
   justify-content: space-between;
   margin-bottom: 56px;
-  padding-top: 40px;
+
+  @media screen and (min-width: 768px) {
+    margin-bottom: 40px;
+  }
+
+  @media screen and (min-width: 1280px) {
+    margin-bottom: 41px;
+  }
 }
 
 .logo {
@@ -58,6 +90,16 @@
 
 .search {
   position: relative;
+
+  @media screen and (min-width: 768px) {
+    margin-right: 180px;
+    margin-left: 180px;
+  }
+
+  @media screen and (min-width: 1280px) {
+    margin-right: 410px;
+    margin-left: 410px;
+  }
 }
 
 .search__input {
@@ -73,14 +115,9 @@
   border-color: transparent;
   border-bottom: 1px solid $light-text-color;
 
-  //   @media screen and (min-width: 768px) {
-  //     width: 336px;
-  //     padding: auto;
-  //   }
-
-  //   @media screen and (min-width: 768px) {
-  //     width: 394px;
-  //   }
+  @media screen and (min-width: 768px) {
+    margin-bottom: 20px;
+  }
 }
 
 .search__input::placeholder {
@@ -94,11 +131,13 @@
 
 .search__btn {
   position: absolute;
-  right: 5px;
+  right: -10px;
+  top: -4px;
   width: 20px;
   height: 20px;
   background-color: transparent;
   border: transparent;
+  margin: 10px;
 }
 
 .search__text {
@@ -106,6 +145,10 @@
   font-size: 14px;
   line-height: 1.142;
   color: $underline-color;
+
+  @media screen and (min-width: 768px) {
+    text-align: center;
+  }
 }
 
 .hidden {
