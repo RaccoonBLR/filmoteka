@@ -1,3 +1,4 @@
+import './js/footer-modal';
 import addGanre from './js/genre';
 
 addGanre();
@@ -6,4 +7,3 @@ addGanre();
 
 
 import './js/pagination';
-import './js/footer-modal';
