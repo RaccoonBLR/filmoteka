@@ -3,8 +3,9 @@ const btnWatched = document.querySelector('#watched-btn');
 const btnQueue = document.querySelector('#queue-btn');
 const sectionEl = document.querySelector('.films-catalog');
 
-btnWatched.addEventListener('click', addWatchedMurkup);
+addWatchedMurkup();
 
+btnWatched.addEventListener('click', addWatchedMurkup);
 
 function addWatchedMurkup() {
     const murkupArr = localStorage.getItem('watched-movies');
