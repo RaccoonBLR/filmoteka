@@ -6,3 +6,4 @@ addGanre();
 
 
 import './js/pagination';
+import './js/footer-modal';
