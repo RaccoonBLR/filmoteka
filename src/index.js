@@ -15,3 +15,5 @@ picturesdfs();
 import './js/pagination';
 
 import './js/search-query';
+
+import './js/modalOnClick';
