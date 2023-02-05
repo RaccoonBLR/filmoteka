@@ -8,11 +8,13 @@ const queueBtn = document.querySelector(`#queue-btn`);
 queueBtn.addEventListener('click', onQueueBtn);
 function onQueueBtn() {
   const queuedMovies = JSON.parse(localStorage.getItem('queued-movies'));
+
+  watchedBtn.classList.remove('library_btn--active');
+  queueBtn.classList.add('library_btn--active');
+
   if (!queuedMovies) {
     filmsNotFoundTwo();
     return;
   }
-  watchedBtn.classList.remove('library_btn--active');
-  queueBtn.classList.add('library_btn--active');
   library.innerHTML = cardsMarkup(queuedMovies);
 }

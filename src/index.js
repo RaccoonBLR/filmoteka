@@ -9,9 +9,9 @@ addGanre();
 
 import './js/news-api';
 
-import './js/picturesdfs';
+// import './js/picturesdfs';
 
-picturesdfs();
+// picturesdfs();
 
 import './js/pagination';
 
