@@ -1,0 +1,2 @@
+export { modalOpen };
+export { markupModal };

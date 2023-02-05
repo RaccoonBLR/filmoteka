@@ -9,57 +9,62 @@
       </svg>
     </button>
     <div class="modal-conteiner">
-      <img
-        class="js-img-Modal"
-        src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcShP7_wCTnVoJtJrHBgP-Jrpa5I2OwoTQFODw&usqp=CAU"
-        alt=""
-        width="378px"
-      />
+      <div class="img-box">
+        <img
+          class="img-modal"
+          src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcShP7_wCTnVoJtJrHBgP-Jrpa5I2OwoTQFODw&usqp=CAU"
+          alt=""
+          width="240px"
+        />
+      </div>
 
-      <div class="text-box">
-        <h2 class="modal-title">A FISTFUL OF LEAD</h2>
-        <table>
-          <tbody>
-            <tr>
-              <td class="category">Vote / Votes</td>
-              <td class="js-vote">7.3</td>
-              <td>/</td>
-              <td class="js-votes">1260</td>
-            </tr>
-            <tr>
-              <td class="category">Popularity</td>
-              <td class="js-popularity" colspan="3">100.2</td>
-              <td></td>
-              <td></td>
-            </tr>
-            <tr>
-              <td class="category">Original Title</td>
-              <td class="js-title" colspan="3">A FISTFUL OF LEAD</td>
-              <td></td>
-              <td></td>
-            </tr>
-            <tr>
-              <td class="category">Genre</td>
-              <td class="js-genre" colspan="3">Western</td>
-              <td></td>
-              <td></td>
-            </tr>
-          </tbody>
-        </table>
+      <div class="content-box">
+        <div class="text-box">
+          <h2 class="modal-title">A FISTFUL OF LEAD</h2>
+          <table>
+            <tbody class="tbody">
+              <tr>
+                <td class="tbody-category">Vote / Votes</td>
+                <td class="tbody-vote">7.3</td>
+                <td>/</td>
+                <td>1260</td>
+              </tr>
+              <tr>
+                <td class="tbody-category">Popularity</td>
+                <td colspan="3">100.2</td>
+                <td></td>
+                <td></td>
+              </tr>
+              <tr>
+                <td class="tbody-category">Original Title</td>
+                <td class="tbody-title" colspan="3">A FISTFUL OF LEAD</td>
+                <td></td>
+                <td></td>
+              </tr>
+              <tr>
+                <td class="tbody-category">Genre</td>
+                <td colspan="3">Western</td>
+                <td></td>
+                <td></td>
+              </tr>
+            </tbody>
+          </table>
 
-        <h3 class="modal-subtitle">About</h3>
-        <p class="js-textAbout">
-          Four of the West’s most infamous outlaws assemble to steal a huge
-          stash of gold from the most corrupt settlement of the gold rush towns.
-          But not all goes to plan one is killed and the other three escapes
-          with bags of gold hide out in the abandoned gold mine where they
-          happen across another gang of three – who themselves were planning to
-          hit the very same bank! As tensions rise, things go from bad to worse
-          as they realise the bags of gold are filled with lead... they’ve been
-          double crossed – but by who and how? As tensions rise, things go from
-          bad to worse as they realise the bags of gold are filled with lead...
-          they’ve been double crossed – but by who and how?
-        </p>
+          <h3 class="modal-subtitle">About</h3>
+          <p class="textAbout">
+            Four of the West’s most infamous outlaws assemble to steal a huge
+            stash of gold from the most corrupt settlement of the gold rush
+            towns. But not all goes to plan one is killed and the other three
+            escapes with bags of gold hide out in the abandoned gold mine where
+            they happen across another gang of three – who themselves were
+            planning to hit the very same bank! As tensions rise, things go from
+            bad to worse as they realise the bags of gold are filled with
+            lead... they’ve been double crossed – but by who and how? As
+            tensions rise, things go from bad to worse as they realise the bags
+            of gold are filled with lead... they’ve been double crossed – but by
+            who and how?
+          </p>
+        </div>
         <div class="btn-conteiner">
           <button class="js-toWatched btn-click-modal">add to watched</button>
           <button class="js-toQueue btn-click-modal">add to queue</button>
@@ -69,17 +74,101 @@
   </div>
 </div>
 
-<!-- Открытие/закрытие модалки -->
 <script>
-  const refs = {
-    openModalCard: document.querySelector('[data-modal-open]'),
-    closeModalBtn: document.querySelector('[data-modal-close]'),
-    modal: document.querySelector('[data-modal]'),
-  };
-  refs.openModalCard.addEventListener('click', toggleModal);
-  refs.closeModalBtn.addEventListener('click', toggleModal);
+  // <!-- функция Открытие/закрытие модалки -->
+  modalOpen();
+  function modalOpen() {
+    const refs = {
+      openModalCard: document.querySelector('[data-modal-open]'),
+      closeModalBtn: document.querySelector('[data-modal-close]'),
+      modal: document.querySelector('[data-modal]'),
+    };
 
-  function toggleModal() {
-    refs.modal.classList.toggle('is-hidden');
+    refs.openModalCard.addEventListener('click', toggleModal);
+    refs.closeModalBtn.addEventListener('click', toggleModal);
+    function toggleModal() {
+      refs.modal.classList.toggle('is-hidden');
+    }
+  }
+
+  // Функция разметки модалки по клику на карточку (пока без map)
+  markupModal();
+  function markupModal() {
+    const refs = {
+      openModalCard: document.querySelector('[data-modal-open]'),
+      modalConteiner: document.querySelector('.modal-conteiner'),
+    };
+
+    refs.openModalCard.addEventListener('click', onClickMarkup);
+
+    function onClickMarkup() {
+      const imgUrl = `https://image.tmdb.org/t/p/w500/sv1xJUazXeYqALzczSZ3O6nkH75.jpg`;
+      const title = 'Black Panther: Wakanda Forever';
+      const vote = Number('7.524').toFixed(1);
+      const votes = '2373';
+      const popularity = Number('5470.522').toFixed(1);
+      let genre = 'Action';
+      if (!genre) {
+        genre = 'no information';
+      }
+      let about =
+        'Queen Ramonda, Shuri, M’Baku, Okoye and the Dora Milaje fight to protect their nation from intervening world powers in the wake of King T’Challa’s death.  As the Wakandans strive to embrace their next chapter, the heroes must band together with the help of War Dog Nakia and Everett Ross and forge a new path for the kingdom of Wakanda.';
+      if (!about) {
+        about = 'no information, but coming soon';
+      }
+
+      const markup = `<div class="img-box">
+    <img
+      class="img-modal"
+      src="${imgUrl}"
+      alt="${title}"
+      width="240px"
+    />
+  </div>
+  <div class="content-box">
+    <div class="text-box">
+      <h2 class="modal-title">${title}</h2>
+      <table>
+        <tbody class="tbody">
+          <tr>
+            <td class="tbody-category">Vote / Votes</td>
+            <td class="tbody-vote">${vote}</td>
+            <td>/</td>
+            <td>${votes}</td>
+          </tr>
+          <tr>
+            <td class="tbody-category">Popularity</td>
+            <td colspan="3">${popularity}</td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td class="tbody-category">Original Title</td>
+            <td class="tbody-title" colspan="3">${title}</td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td class="tbody-category">Genre</td>
+            <td colspan="3">${genre}</td>
+            <td></td>
+            <td></td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h3 class="modal-subtitle">About</h3>
+      <p class="textAbout">
+        ${about}
+      </p>
+    </div>
+    <div class="btn-conteiner">
+      <button class="js-toWatched btn-click-modal">add to watched</button>
+      <button class="js-toQueue btn-click-modal">add to queue</button>
+    </div>
+  </div>`;
+
+      refs.modalConteiner.innerHTML = markup;
+    }
   }
 </script>

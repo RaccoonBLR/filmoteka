@@ -9,6 +9,7 @@ addGanre();
 
 
 
+
 import './js/news-api';
 
 
@@ -16,4 +17,6 @@ import './js/news-api';
 import './js/pagination';
 
 
+
 import './js/search-query'
+
