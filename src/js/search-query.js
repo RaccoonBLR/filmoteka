@@ -9,11 +9,12 @@ const searchInputEl = document.querySelector('.search__input');
 const TrendApi = new NewTrendApi();
 const SearchApi = new NewSearchApi();
 
-TrendApi.fetchTrend().then(dataForCatalog => {
-  localStorage.setItem('current-movies', JSON.stringify(dataForCatalog));
-  addCards(dataForCatalog);
-  
-}).catch(console.log);
+TrendApi.fetchTrend()
+  .then(dataForCatallog => {
+    localStorage.setItem('current-movies', JSON.stringify(dataForCatallog));
+    addCards(dataForCatallog);
+  })
+  .catch(console.log);
 
 form.addEventListener('submit', onSearch);
 
@@ -28,7 +29,7 @@ async function onSearch(e) {
       console.log(dataForCatalog);
       localStorage.setItem('current-movies', JSON.stringify(dataForCatalog));
       await TrendApi.fetchTrend().then(addCards);
-    } catch(error) {
+    } catch (error) {
       console.log(error.message);
     }
     return;
@@ -39,7 +40,7 @@ async function onSearch(e) {
     console.log(dataForCatalog);
     localStorage.setItem('current-movies', JSON.stringify(dataForCatalog));
     await SearchApi.fetchSearch().then(addCards);
-  } catch(error) {
+  } catch (error) {
     console.log(error.message);
   }
 }

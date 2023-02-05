@@ -1,4 +1,3 @@
-
 import './sass/index.scss';
 
 import './js/footer-modal';
@@ -11,6 +10,6 @@ import './js/news-api';
 
 import './js/pagination';
 
-import './js/search-query'
+import './js/search-query';
 
-
+import './js/modalOnClick';
