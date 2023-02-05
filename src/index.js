@@ -9,7 +9,7 @@ addGanre();
 
 import './js/news-api';
 
-import { picturesdfs } from './js/picturesdfs';
+import './js/picturesdfs';
 
 picturesdfs();
 
