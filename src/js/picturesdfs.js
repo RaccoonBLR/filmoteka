@@ -1,5 +1,19 @@
-const sectionEl = document.querySelector('films-catalog');
+import zhdun from '../images/waiting/z9ax1o.jpg';
 
-export default function picturesdfs () {
-sectionEl.innerHTML = `<img src="../../src/images/waiting/z9ax1o.jpg.jpg" alt="Homunculus loxodontus" width="400">`
+const imgNotFound = `<div class>
+<img src="${zhdun}" width="600 class='img_not-found'">
+    </div>`;
+
+function filmsNotFound() {
+    const containerEl = document.querySelector(".container-catalog");
+
+    containerEl.innerHTML = imgNotFound;
 }
+
+function filmsNotFoundTwo() {
+    const containerEl = document.querySelector(".films-catalog");
+
+    containerEl.innerHTML = imgNotFound;
+}
+
+export {filmsNotFound, filmsNotFoundTwo}
