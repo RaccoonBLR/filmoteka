@@ -1,5 +1,7 @@
+import zhdun from '../images/waiting/z9ax1o.jpg';
+
 const imgNotFound = `<div class>
-<img src="../images/waiting/z9ax1o.jpg" width="400">
+<img src="${zhdun}" width="600 class='img_not-found'">
     </div>`;
 
 function filmsNotFound() {
