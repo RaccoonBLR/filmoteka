@@ -23,6 +23,7 @@ class NewSearchApi {
 async fetchSearch() {
   try {
     const resp = await axios.get(`${SEARCH_URL}?api_key=${API_KEY}&query=${this.searchQuery}&page=${this.page}`);
+   console.log(resp.data)
     return resp.data.results;
     } catch (err) {
     console.log(err.message)

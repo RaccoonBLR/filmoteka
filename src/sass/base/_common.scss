@@ -42,6 +42,10 @@ body {
   background-color: $body-main-color;
 }
 
+button, a {
+  cursor: pointer;
+}
+
 // Притискаємо футер донизу
 html,
 body {
