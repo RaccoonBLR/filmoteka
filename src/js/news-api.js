@@ -10,43 +10,38 @@ class NewTrendApi {
       const resp = await axios.get(`${TREND_URL}?api_key=${API_KEY}&page=${this.page}`);
   return resp.data.results;
   } catch (err) {
-    console.log(error.message);
+    console.log(err.message);
   }
-  }
-  get page() {
-    return this.page;
-  }
-
-  set page(newPage) {
-    this.page = newPage;
   }
 }
-
 
 class NewSearchApi {
   constructor() {
     this.page = 1,
-    this.search = 'shrek'
+    this.searchQuery = ''
   }
 async fetchSearch() {
   try {
-    const resp = await axios.get(`${SEARCH_URL}?api_key=${API_KEY}&query=${this.search}&page=${this.page}`);
+    const resp = await axios.get(`${SEARCH_URL}?api_key=${API_KEY}&query=${this.searchQuery}&page=${this.page}`);
     return resp.data.results;
     } catch (err) {
-    console.log(error.message)
+    console.log(err.message)
   }
   }
-    get page() {
-    return this.page;
+
+  //   addPage() {
+  //   this.page += 1;
+  // }
+
+  // resetPage() {
+  //   this.page = 1;
+  // }
+
+    get query() {
+    return this.searchQuery;
   }
-  set page(newPage) {
-    this.page = newPage;
-  }
-    get search() {
-    return this.search;
-  }
-  set search(newSearch) {
-    this.search = newSearch;
+  set query(newSearchQuery) {
+    return this.searchQuery = newSearchQuery;
   }
 }
 
