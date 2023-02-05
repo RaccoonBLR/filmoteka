@@ -2,6 +2,7 @@
 @import './base/common';
 @import './base/container';
 @import './base/visually-hidden';
+@import './base/mixins';
 @import './components/buttons';
 @import './components/loader';
 @import './components/modal';
@@ -11,4 +12,6 @@
 @import './layout/header-library';
 @import './layout/homeCatalog';
 @import './layout/libCatalog';
+@import './layout/pagination';
 @import './layout/footer';
+

@@ -1,20 +1,25 @@
 .library_header {
   padding-top: 35px;
   padding-bottom: 60px;
+  background-image: linear-gradient(
+   to right,
+   rgba(0, 0, 0, 0.56),
+  rgba(0, 0, 0, 0.56)),
+  url(../images/library-header/small.jpg);
+
   @media screen and (min-width: 768px)  {
     padding-top: 30px;
+   
   }
 
-  background-color: $footer-text-color;
   background-image: linear-gradient(
     to right,
     rgba(0, 0, 0, 0.56),
     rgba(0, 0, 0, 0.56)
-    ),
-  url(../images/library-header/medium.jpg);
-  
-    
-  @media screen and (min-width: 769px) {
+    ),  url(../images/library-header/medium.jpg);
+  background-color: $footer-text-color;
+     
+  @media screen and (min-width: 1280px) {
     background-image: linear-gradient(
         to right,
         rgba(0, 0, 0, 0.56),
