@@ -8,10 +8,6 @@ addGanre();
 
 import './js/news-api';
 
-import picturesdfs from './js/picturesdfs';
-
-picturesdfs();
-
 import './js/pagination';
 
 import './js/search-query';
