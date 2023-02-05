@@ -9,10 +9,12 @@ addGanre();
 
 
 
+
 import './js/news-api';
 
 
 
 import './js/pagination';
+
 
 
