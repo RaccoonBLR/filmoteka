@@ -11,7 +11,7 @@ const SearchApi = new NewSearchApi();
 TrendApi.fetchTrend().then(dataForCatallog => {
   localStorage.setItem('current-movies', JSON.stringify(dataForCatallog));
   addCards(dataForCatallog);
-});
+}).catch(console.log);
 
 form.addEventListener('submit', onSearch);
 
@@ -26,8 +26,8 @@ async function onSearch(e) {
       console.log(dataForCatallog);
       localStorage.setItem('current-movies', JSON.stringify(dataForCatallog));
       await TrendApi.fetchTrend().then(addCards);
-    } catch {
-      error => console.log(error.message);
+    } catch(error) {
+      console.log(error.message);
     }
     return;
   }
@@ -37,8 +37,8 @@ async function onSearch(e) {
     console.log(dataForCatallog);
     localStorage.setItem('current-movies', JSON.stringify(dataForCatallog));
     await SearchApi.fetchSearch().then(addCards);
-  } catch {
-    error => console.log(error.message);
+  } catch(error) {
+    console.log(error.message);
   }
 }
 
