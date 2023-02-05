@@ -6,15 +6,15 @@ const imgNotFound = `<div class='not-found_container'>
     </div>`;
 
 function filmsNotFound() {
-    const conteinerEl = document.querySelector('.container-catalog');
+    const containerEl = document.querySelector('.container-catalog');
 
-    conteinerEl.innerHTML = imgNotFound;
+    containerEl.innerHTML = imgNotFound;
 }
 
 function filmsNotFoundTwo() {
-    const conteinerEl = document.querySelector('.films-catalog');
+    const containerEl = document.querySelector('.films-catalog');
 
-    conteinerEl.innerHTML = imgNotFound;
+    containerEl.innerHTML = imgNotFound;
 }
 
 export { filmsNotFound, filmsNotFoundTwo }

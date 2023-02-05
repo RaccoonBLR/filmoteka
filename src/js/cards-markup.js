@@ -14,7 +14,7 @@ export default function filmCardMarkupCreator(data) {
       />
       <h2 class="film-card__title">${name}</h2>
       <div class="film-card__desc">
-        <p class="film-card__janre">Janre</p>
+        <p class="film-card__janre">Genre</p>
         <p class="film-card__date">&nbsp|&nbsp${Number.parseInt(date)}</p>
         <span class="film-card__rating">${film.vote_average.toFixed(1)}</span>
       </div>
