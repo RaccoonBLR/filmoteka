@@ -35,7 +35,7 @@ const options = { // default value of options
 export const pagination = new Pagination(container, options);
 
 
-paganation.on('afterMove', (e) => {
+pagination.on('afterMove', (e) => {
      const currentPage = e.page;
      console.log(currentPage);
 });
