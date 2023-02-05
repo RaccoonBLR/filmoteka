@@ -5,7 +5,7 @@ export default function filmCardMarkupCreator(data) {
       const name = film.original_title ?? film.name;
 
       return `<article class="film-card">
-    <a src="#" class="film-card__link"  data-modal-open>
+    <a src="#" class="film-card__link"  data-modal-open data-id='${film.id}'>
       <img
         class="film-card__image"
         src="https://image.tmdb.org/t/p/w500${film.poster_path}"
