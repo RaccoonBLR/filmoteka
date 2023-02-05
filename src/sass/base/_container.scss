@@ -20,3 +20,21 @@
     width: 1280px;
   }
 }
+
+.container-catalog{
+  padding-top: 20px;
+    padding-bottom: 40px;
+  @media screen and (min-width: 768px) {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: start;
+    padding-top: 60px;
+    padding-bottom: 60px;
+    gap: 32px;
+  }
+
+  @media screen and (min-width: 1280px) {
+    gap: 16px;
+    row-gap: 32px;   
+  }
+}
