@@ -1,5 +1,5 @@
 const imgNotFound = `<div class>
-<img src="./images/waiting/z9ax1o.jpg.jpg" width="400">
+<img src="../images/waiting/z9ax1o.jpg" width="400">
     </div>`;
 
 function filmsNotFound() {

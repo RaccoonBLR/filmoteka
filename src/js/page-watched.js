@@ -1,5 +1,5 @@
-import cardsMarkup from '../js/Cards-markup';
-import filmsNotFoundTwo from '../js/picture-not-found';
+import cardsMarkup from '../js/cards-markup';
+import { filmsNotFoundTwo } from '../js/picture-not-found';
 
 const btnWatched = document.querySelector('#watched-btn');
 const btnQueue = document.querySelector('#queue-btn');
