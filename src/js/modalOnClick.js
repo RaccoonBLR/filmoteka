@@ -5,7 +5,7 @@ function modalOpen() {
   const refs = {
     openModalCard: document.querySelector('.container-catalog'),
     modal: document.querySelector('[data-modal]'),
-    modalConteiner: document.querySelector('.modal-conteiner'),
+    modalContainer: document.querySelector('.modal-container'),
   };
 
   refs.openModalCard.addEventListener('click', openModal);
@@ -31,10 +31,10 @@ function modalOpen() {
     function modalMarkup() {
       //  формирование массива жанров карточки :
       const genresArr = currentFilm.genre_ids;
-      const ganresObj = addGanre();
+      const genresObj = addGenre();
 
-      let genersFilm = [];
-      genresArr.map(el => genersFilm.push(ganresObj[el]));
+      let genresFilm = [];
+      genresArr.map(el => genresFilm.push(genresObj[el]));
 
       // Подстановка данных в шаблонный рядок модалки
       const imgUrl = `https://image.tmdb.org/t/p/w500${currentFilm.poster_path}`;
@@ -43,7 +43,7 @@ function modalOpen() {
       const vote = Number(currentFilm.vote_average).toFixed(1);
       const votes = currentFilm.vote_count;
       const popularity = Number(currentFilm.popularity).toFixed(1);
-      let genre = genersFilm.join(', ');
+      let genre = genresFilm.join(', ');
       if (!genre) {
         genre = 'no information';
       }
@@ -98,13 +98,13 @@ function modalOpen() {
              ${about}
            </p>
          </div>
-         <div class="btn-conteiner">
+         <div class="btn-container">
            <button class="js-toWatched btn-click-modal">add to watched</button>
            <button class="js-toQueue btn-click-modal">add to queue</button>
          </div>
        </div>`;
 
-      refs.modalConteiner.innerHTML = markup;
+      refs.modalContainer.innerHTML = markup;
     }
     modalMarkup();
     localStorageLibrary(currentFilm);
@@ -128,19 +128,19 @@ function modalClose() {
 modalClose();
 
 // Функция создания объекта жанров
-function addGanre() {
-  const ganre = JSON.parse(localStorage.getItem('Ganre'));
+function addGenre() {
+  const genre = JSON.parse(localStorage.getItem('Genre'));
 
-  const ganreId = ganre.flatMap(el => el.id);
-  const ganreName = ganre.flatMap(el => el.name);
-  const ganreObj = ganreId.reduce(
-    (acc, id, i) => ({ ...acc, [id]: ganreName[i] }),
+  const genreId = genre.flatMap(el => el.id);
+  const genreName = genre.flatMap(el => el.name);
+  const genreObj = genreId.reduce(
+    (acc, id, i) => ({ ...acc, [id]: genreName[i] }),
     {}
   );
 
-  return ganreObj;
+  return genreObj;
 }
-addGanre();
+addGenre();
 
 //закриття по бекдропу та Esc
 const backdrop = document.querySelector('.backdrop');
