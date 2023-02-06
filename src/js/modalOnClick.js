@@ -15,7 +15,7 @@ function modalOpen() {
     }
     refs.modal.classList.toggle('is-hidden');
     window.addEventListener('keydown', onEscapeKeyPress);
-  // получение id  по нажатому объекту
+    // получение id  по нажатому объекту
 
     const filmId = Number(filmCard.dataset.id);
     console.log(filmId);
@@ -27,13 +27,21 @@ function modalOpen() {
 
     // ФУНКЦИЯ РАЗМЕТКИ МОДАЛКИ
     function modalMarkup() {
+      //  формирование массива жанров карточки :
+      const genresArr = currentFilm.genre_ids;
+      const ganresObj = addGanre();
+
+      let genersFilm = [];
+      genresArr.map(el => genersFilm.push(ganresObj[el]));
+
+      // Подстановка данных в шаблонный рядок модалки
       const imgUrl = `https://image.tmdb.org/t/p/w500${currentFilm.poster_path}`;
       console.log(currentFilm.poster_path);
       const title = currentFilm.title;
       const vote = Number(currentFilm.vote_average).toFixed(1);
       const votes = currentFilm.vote_count;
       const popularity = Number(currentFilm.popularity).toFixed(1);
-      let genre = 'Action';
+      let genre = genersFilm.join(', ');
       if (!genre) {
         genre = 'no information';
       }
@@ -58,24 +66,25 @@ function modalOpen() {
                <tr>
                  <td class="tbody-category">Vote / Votes</td>
                  <td class="tbody-vote">${vote}</td>
-                 <td>/</td>
-                 <td>${votes}</td>
+                 <td class="tbody-slash">/</td>
+                 <td class="tbody-votes">${votes}</td>
+                 <td></td>
                </tr>
                <tr>
                  <td class="tbody-category">Popularity</td>
-                 <td colspan="3">${popularity}</td>
+                 <td colspan="4">${popularity}</td>
                  <td></td>
                  <td></td>
                </tr>
                <tr>
                  <td class="tbody-category">Original Title</td>
-                 <td class="tbody-title" colspan="3">${title}</td>
+                 <td class="tbody-category__text" colspan="4">${title}</td>
                  <td></td>
                  <td></td>
                </tr>
                <tr>
                  <td class="tbody-category">Genre</td>
-                 <td colspan="3">${genre}</td>
+                 <td class="tbody-category__text" colspan="4">${genre}</td>
                  <td></td>
                  <td></td>
                </tr>
@@ -128,7 +137,7 @@ function addGanre() {
 
   return ganreObj;
 }
-const ganreObj = addGanre();
+addGanre();
 
 //закриття по бекдропу та Esc
 const backdrop = document.querySelector('.backdrop');
@@ -141,7 +150,7 @@ function onBackdropClick(event) {
 
 function onEscapeKeyPress(event) {
   console.log(event.code);
-  if (event.code === "Escape") {
+  if (event.code === 'Escape') {
     document.querySelector('[data-modal]').classList.toggle('is-hidden');
   }
 }
