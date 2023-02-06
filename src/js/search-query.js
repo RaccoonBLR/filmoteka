@@ -53,14 +53,26 @@ async function onSearch(e) {
     await SearchApi.fetchSearch().then(addCards);
 
     //wrongSearch
-    // if (dataForCatallog.length === 0) {
-    //   hiddenWarning.classList.remove('hidden');
-    //   hiddenWarning.textContent =
-    //     'Search result not successful. Enter the correct movie name and';
-    //   setTimeout(function () {
-    //     hiddenWarning.classList.add('hidden');
-    //   }, 3000);
-    // }
+
+    if (dataForCatallog.length === 0) {
+      console.log(dataForCatallog);
+      TrendApi.fetchTrend()
+        .then(dataForCatallog => {
+          localStorage.setItem(
+            'current-movies',
+            JSON.stringify(dataForCatallog)
+          );
+          addCards(dataForCatallog);
+        })
+        .catch(console.log);
+      hiddenWarning.classList.remove('hidden');
+      hiddenWarning.textContent =
+        'Search result not successful. Enter the correct movie name and';
+      setTimeout(function () {
+        hiddenWarning.classList.add('hidden');
+      }, 3000);
+    }
+
   } catch (error) {
     console.log(error.message);
   }
