@@ -47,8 +47,8 @@ async fetchSearch() {
     return this.searchQuery;
   }
   set query(newSearchQuery) {    
-    pagination.currentSearchString = pagination._currentPage;
-    // pagination.currentSearchString = this.searchQuery;
+    // pagination.currentSearchString = pagination._currentPage;
+    pagination.currentSearchString = this.searchQuery;
     console.log(pagination.currentSearchString);
     return this.searchQuery = newSearchQuery;
   }
