@@ -9,7 +9,7 @@ class NewTrendApi {
       async fetchTrend() {
   try {
     const resp = await axios.get(`${TREND_URL}?api_key=${API_KEY}&page=${this.page}`);
-    // pagination.currentSearchString = '';
+    pagination.currentSearchString = '';
     onResultsResetPagination(resp);
   return resp.data.results;
   } catch (err) {
@@ -49,7 +49,7 @@ async fetchSearch() {
   set query(newSearchQuery) {    
     
     pagination.currentSearchString = this.searchQuery;
-    // console.log(pagination.currentSearchString);
+    console.log(pagination.currentSearchString);
     return this.searchQuery = newSearchQuery;
   }
 }
