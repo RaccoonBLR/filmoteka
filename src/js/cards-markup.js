@@ -3,7 +3,7 @@ import { IMAGE_BASE_URL } from './api-vars.js';
 import posterPlug from '../images/utility-images/poster-plug.png';
 
 export default function filmCardMarkupCreator(data) {
-  const genresValue = JSON.parse(localStorage.getItem('Ganre'));
+  const genresValue = JSON.parse(localStorage.getItem('Genre'));
 
   return data
     .map(film => {
