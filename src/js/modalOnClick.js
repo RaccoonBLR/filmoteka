@@ -1,3 +1,5 @@
+import localStorageLibrary from './modalBtns.js';
+
 // <!-- функция открытия и разметки модалки
 function modalOpen() {
   const refs = {
@@ -105,6 +107,7 @@ function modalOpen() {
       refs.modalConteiner.innerHTML = markup;
     }
     modalMarkup();
+    localStorageLibrary(currentFilm);
   }
 }
 modalOpen();
