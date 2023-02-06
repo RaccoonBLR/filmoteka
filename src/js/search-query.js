@@ -1,6 +1,7 @@
 import { NewTrendApi, NewSearchApi } from './news-api';
 import filmCardMarkupCreator from './cards-markup';
 
+
 const hiddenWarning = document.querySelector('.search__text');
 const carts = document.querySelector('.container-catalog');
 const form = document.querySelector('.search');
@@ -21,6 +22,7 @@ form.addEventListener('submit', onSearch);
 async function onSearch(e) {
   e.preventDefault();
   // SearchApi.resetPage();
+
   SearchApi.query = e.currentTarget.elements.searchQuery.value; //можливо варто додати trim()
   console.log(SearchApi.query);
 
@@ -32,6 +34,7 @@ async function onSearch(e) {
       hiddenWarning.classList.add('hidden');
     }, 3000);
   }
+
 
   if (!SearchApi.query) {
     try {
@@ -46,9 +49,9 @@ async function onSearch(e) {
   }
 
   try {
-    const dataForCatallog = await SearchApi.fetchSearch();
-    console.log(dataForCatallog);
-    localStorage.setItem('current-movies', JSON.stringify(dataForCatallog));
+    const dataForCatalog = await SearchApi.fetchSearch();
+    console.log(dataForCatalog);
+    localStorage.setItem('current-movies', JSON.stringify(dataForCatalog));
     await SearchApi.fetchSearch().then(addCards);
 
     //wrongSearch
@@ -71,6 +74,7 @@ async function onSearch(e) {
         hiddenWarning.classList.add('hidden');
       }, 3000);
     }
+
   } catch (error) {
     console.log(error.message);
   }

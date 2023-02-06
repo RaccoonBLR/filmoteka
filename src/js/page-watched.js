@@ -5,20 +5,20 @@ const btnWatched = document.querySelector('#watched-btn');
 const btnQueue = document.querySelector('#queue-btn');
 const sectionEl = document.querySelector('.films-catalog');
 
-addWatchedMurkup();
+addWatchedMarkup();
 
-btnWatched.addEventListener('click', addWatchedMurkup);
+btnWatched.addEventListener('click', addWatchedMarkup);
 
-function addWatchedMurkup() {
-    const murkupArr = localStorage.getItem('watched-movies');
+function addWatchedMarkup() {
+    const markupArr = localStorage.getItem('watched-movies');
     btnWatched.classList.add('library_btn--active');
     btnQueue.classList.remove('library_btn--active');
-    if(!murkupArr) {
+    if(!markupArr) {
         filmsNotFoundTwo();
     } else {
-        const murkupArrParse = JSON.parse(murkupArr);
-        const strokeMurkup = cardsMarkup(murkupArrParse);
-        sectionEl.innerHTML = strokeMurkup;
+        const markupArrParse = JSON.parse(markupArr);
+        const strokeMarkup = cardsMarkup(markupArrParse);
+        sectionEl.innerHTML = strokeMarkup;
     }
 }
 
