@@ -14,8 +14,8 @@ function modalOpen() {
       return;
     }
     refs.modal.classList.toggle('is-hidden');
-
-    // получение id  по нажатому объекту
+    window.addEventListener('keydown', onEscapeKeyPress);
+  // получение id  по нажатому объекту
 
     const filmId = Number(filmCard.dataset.id);
     console.log(filmId);
@@ -111,6 +111,7 @@ function modalClose() {
   function toggleModal() {
     refs.modal.classList.toggle('is-hidden');
   }
+  window.removeEventListener('keydown', onEscapeKeyPress);
 }
 modalClose();
 
@@ -128,3 +129,19 @@ function addGanre() {
   return ganreObj;
 }
 const ganreObj = addGanre();
+
+//закриття по бекдропу та Esc
+const backdrop = document.querySelector('.backdrop');
+backdrop.addEventListener('click', onBackdropClick);
+function onBackdropClick(event) {
+  if (event.currentTarget === event.target) {
+    document.querySelector('[data-modal]').classList.toggle('is-hidden');
+  }
+}
+
+function onEscapeKeyPress(event) {
+  console.log(event.code);
+  if (event.code === "Escape") {
+    document.querySelector('[data-modal]').classList.toggle('is-hidden');
+  }
+}
