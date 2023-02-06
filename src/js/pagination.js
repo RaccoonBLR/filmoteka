@@ -1,7 +1,5 @@
 import Pagination from 'tui-pagination';
 import "tui-pagination/dist/tui-pagination.css";
-//const axios = require('axios').default;
-//import { loader } from './loader';
 
 
 const container = document.getElementById('pagination');
@@ -29,19 +27,11 @@ const options = { // default value of options
              '<a href="#" class="tui-page-btn tui-{{type}}-is-ellip">' +
                  '<span class="tui-ico-ellip">...</span>' +
              '</a>'
-     }
+    },
+    usageStatistics: false,
 };
 
 export const pagination = new Pagination(container, options);
-
-
-pagination.on('afterMove', (e) => {
-     const currentPage = e.page;
-     console.log(currentPage);
-});
-
-
-export const paginationPage = pagination.getCurrentPage();
 
 export function onResultsResetPagination(res) {
     pagination.reset(res.data.total_results);

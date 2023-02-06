@@ -51,7 +51,7 @@
   }
 
   @media screen and (min-width: 1280px) {
-    padding: 40px 12px;
+    padding: 40px 20px;
     width: 806px;
     height: 558px;
   }
@@ -87,7 +87,17 @@
 
   @media screen and (min-width: 768px) {
     flex-direction: row;
-    justify-content: space-between;
+  }
+}
+.text-box {
+  @media screen and (min-width: 480px) {
+    height: 420px;
+  }
+  @media screen and (min-width: 768px) {
+    height: 400px;
+  }
+  @media screen and (min-width: 1280px) {
+    height: 370px;
   }
 }
 
@@ -106,8 +116,16 @@
 
   @media screen and (min-width: 1280px) {
     margin: 0 auto;
-    width: 375px;
+    width: 350px;
     height: 468px;
+  }
+}
+.content-box {
+  @media screen and (min-width: 768px) {
+    margin-left: 68px;
+  }
+  @media screen and (min-width: 1280px) {
+    margin-left: 16px;
   }
 }
 .modal-title {
@@ -140,21 +158,31 @@ table {
   }
 }
 .tbody-category {
+  width: 140px;
   padding-right: 60px;
   color: $modal-grey-text-color;
-
-  @media screen and (min-width: 1280px) {
-    padding-right: 80px;
-  }
 }
 
+.tbody {
+  @media screen and (min-width: 1280px) {
+    width: 370px;
+  }
+}
 .tbody-vote {
-  max-width: 10px;
+  width: 12px;
   text-align: center;
-  padding: 0;
+  padding: 0px 4px;
   color: $light-text-color;
   background-color: $accent-color;
   border-radius: 5px;
+}
+.tbody-slash {
+  text-align: center;
+  width: 20px;
+}
+.tbody-votes {
+  width: 25px;
+  text-align: center;
 }
 
 // описание фильма about
@@ -166,9 +194,6 @@ table {
   margin-bottom: 5px;
 }
 
-.tbody-title {
-  max-width: 240px;
-}
 .textAbout {
   min-width: 240px;
   max-height: 236px;
@@ -178,8 +203,8 @@ table {
   overflow: auto;
 
   @media screen and (min-width: 768px) {
-    width: 264px;
-    max-height: 260px;
+    width: 320px;
+    max-height: 240px;
   }
 
   @media screen and (min-width: 1280px) {
@@ -199,6 +224,7 @@ table {
 
   @media screen and (min-width: 768px) {
     margin-left: 10px;
+
     justify-content: flex-start;
     gap: 15px;
   }
