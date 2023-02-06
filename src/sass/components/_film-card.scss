@@ -1,5 +1,6 @@
 .film-card {
   width: 280px;
+  overflow: hidden;
 
   margin: 0 auto;
 
@@ -39,6 +40,7 @@
   font-size: 12px;
   line-height: 1.33;
   text-transform: uppercase;
+  white-space: nowrap;
 
   color: $primary-text-color;
 
