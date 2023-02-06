@@ -21,7 +21,7 @@ form.addEventListener('submit', onSearch);
 async function onSearch(e) {
   e.preventDefault();
   // SearchApi.resetPage();
-  SearchApi.query = e.currentTarget.elements.searchQuery.value;
+  SearchApi.query = e.currentTarget.elements.searchQuery.value; //можливо варто додати trim()
   console.log(SearchApi.query);
 
   //Type something
@@ -52,6 +52,7 @@ async function onSearch(e) {
     await SearchApi.fetchSearch().then(addCards);
 
     //wrongSearch
+
     if (dataForCatallog.length === 0) {
       console.log(dataForCatallog);
       TrendApi.fetchTrend()
