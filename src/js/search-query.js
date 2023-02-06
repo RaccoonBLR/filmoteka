@@ -24,7 +24,7 @@ async function onSearch(e) {
   SearchApi.query = e.currentTarget.elements.searchQuery.value; //можливо варто додати trim()
   console.log(SearchApi.query);
 
-  //Type something
+  // Type something
   if (SearchApi.query === '') {
     hiddenWarning.classList.remove('hidden');
     hiddenWarning.textContent = 'Please type something';
@@ -35,9 +35,9 @@ async function onSearch(e) {
 
   if (!SearchApi.query) {
     try {
-      const dataForCatallog = await TrendApi.fetchTrend();
-      console.log(dataForCatallog);
-      localStorage.setItem('current-movies', JSON.stringify(dataForCatallog));
+      const dataForCatalog = await TrendApi.fetchTrend();
+      console.log(dataForCatalog);
+      localStorage.setItem('current-movies', JSON.stringify(dataForCatalog));
       await TrendApi.fetchTrend().then(addCards);
     } catch (error) {
       console.log(error.message);
