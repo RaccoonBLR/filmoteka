@@ -71,14 +71,13 @@
   }
 }
 
-.logo__name, .logo__svg, 
+.logo, .logo, 
 .nav-list__link, .nav-list__item {
   transition: scale $animations, color $animations;
 }
 
 
-.logo__name:hover, .logo__name:focus, 
-.logo__svg:hover, .logo__svg:focus,
+.logo:hover, .logo:focus, 
 .nav-list__link:hover, .nav-list__link:focus {
   scale: 1.07;
   

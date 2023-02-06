@@ -104,13 +104,12 @@
     background-color: $underline-color;
 }
 
-.library_logo-img, .library_site-name, 
+.library_logo, 
 .library_nav-link, .library_nav-item {
   transition: scale $animations, color $animations;
 }
 
-.library_logo-img:hover, .library_logo-img:focus,
-.library_site-name:hover, .library_site-name:focus {
+.library_logo:hover, .library_logo:focus{
    scale: 1.07;
   
 }

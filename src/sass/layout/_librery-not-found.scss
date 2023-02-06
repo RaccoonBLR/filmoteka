@@ -1,11 +1,11 @@
 .librery_not-found-text {
-    color: rgba(190, 65, 65, 0.888);
-    font-size: 30px;
+    color: rgba(39, 37, 37, 0.888);
+    font-size: 22px;
 }
 
 .not-found_container {
     text-align: center;
-}
+   }
 
 .img_not-found {
     display: block;
@@ -15,7 +15,7 @@
 
 .link_to-home {
     text-decoration: underline;
-    color:rgba(199, 34, 199, 0.888);
+    color:$accent-color;
 }
 
 .films-catalog {

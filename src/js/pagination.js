@@ -1,6 +1,5 @@
-import Pagination from 'tui-pagination';
 import "tui-pagination/dist/tui-pagination.css";
-
+import Pagination from 'tui-pagination';
 
 const container = document.getElementById('pagination');
 const options = { // default value of options
@@ -29,10 +28,12 @@ const options = { // default value of options
              '</a>'
     },
     usageStatistics: false,
+    
 };
 
 export const pagination = new Pagination(container, options);
 
 export function onResultsResetPagination(res) {
-    pagination.reset(res.data.total_results);
+    pagination.reset(res.data.total_results);    
 };
+
