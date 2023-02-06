@@ -11,9 +11,9 @@ const TrendApi = new NewTrendApi();
 const SearchApi = new NewSearchApi();
 
 TrendApi.fetchTrend()
-  .then(dataForCatallog => {
-    localStorage.setItem('current-movies', JSON.stringify(dataForCatallog));
-    addCards(dataForCatallog);
+  .then(dataForCatalog => {
+    localStorage.setItem('current-movies', JSON.stringify(dataForCatalog));
+    addCards(dataForCatalog);
   })
   .catch(console.log);
 
@@ -56,15 +56,15 @@ async function onSearch(e) {
 
     //wrongSearch
 
-    if (dataForCatallog.length === 0) {
-      console.log(dataForCatallog);
+    if (dataForCatalog.length === 0) {
+      console.log(dataForCatalog);
       TrendApi.fetchTrend()
-        .then(dataForCatallog => {
+        .then(dataForCatalog => {
           localStorage.setItem(
             'current-movies',
-            JSON.stringify(dataForCatallog)
+            JSON.stringify(dataForCatalog)
           );
-          addCards(dataForCatallog);
+          addCards(dataForCatalog);
         })
         .catch(console.log);
       hiddenWarning.classList.remove('hidden');
