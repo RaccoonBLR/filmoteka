@@ -1,7 +1,7 @@
 import { NewTrendApi, NewSearchApi } from './news-api';
 import filmCardMarkupCreator from './cards-markup';
 import {Loader} from './loader'
-import {pagination, onResultsResetPagination} from './pagination';
+// import {pagination, onResultsResetPagination} from './pagination';
 
 
 
@@ -107,54 +107,54 @@ pagination.on('afterMove', event => {
   movePage(event);
 });
 
-async function movePage(event) {
-  let URL_handler;
+// async function movePage(event) {
+//   let URL_handler;
 
-  if (!pagination.currentSearchString) {
-    const handler_params = {
-      page: event.page,
-    };
-    URL_handler = TrendApi;
-  } else {
-    const handler_params = {
-      queryString: pagination.currentSearchString,
-      page: event.page,
-    };
-    console.log(handler_params.queryString);
-    URL_handler = SearchApi;
-  }
+//   if (!pagination.currentSearchString) {
+//     const handler_params = {
+//       page: event.page,
+//     };
+//     URL_handler = TrendApi;
+//   } else {
+//     const handler_params = {
+//       queryString: pagination.currentSearchString,
+//       page: event.page,
+//     };
+//     console.log(handler_params.queryString);
+//     URL_handler = SearchApi;
+//   }
 
 
-pagination.on('afterMove', event => {
-        const currentPage = event.page;
-       URL_handler.page = currentPage;
-      SearchApi.query = document.querySelector('.search__input').value;
+// pagination.on('afterMove', event => {
+//         const currentPage = event.page;
+//        URL_handler.page = currentPage;
+//       SearchApi.query = document.querySelector('.search__input').value;
   
-        document.querySelector('.container-catalog').innerHTML = '';
-  onSearchTwo();
-  async function onSearchTwo(e) {
+//         document.querySelector('.container-catalog').innerHTML = '';
+//   onSearchTwo();
+//   async function onSearchTwo(e) {
   
-    if (!SearchApi.query) {
-      try {
-        const dataForCatalog = await TrendApi.fetchTrend();
+//     if (!SearchApi.query) {
+//       try {
+//         const dataForCatalog = await TrendApi.fetchTrend();
       
-        localStorage.setItem('current-movies', JSON.stringify(dataForCatalog));
-        await TrendApi.fetchTrend().then(addCards);
-      } catch (error) {
-        console.log(error.message);
-      }
-      return;
-    }
+//         localStorage.setItem('current-movies', JSON.stringify(dataForCatalog));
+//         await TrendApi.fetchTrend().then(addCards);
+//       } catch (error) {
+//         console.log(error.message);
+//       }
+//       return;
+//     }
 
-    try {
-      const dataForCatalog = await SearchApi.fetchSearch();
+//     try {
+//       const dataForCatalog = await SearchApi.fetchSearch();
       
-      localStorage.setItem('current-movies', JSON.stringify(dataForCatalog));
-      await SearchApi.fetchSearch().then(addCards);
-    } catch (error) {
-      console.log(error.message);
-    }
-  }
-  })
+//       localStorage.setItem('current-movies', JSON.stringify(dataForCatalog));
+//       await SearchApi.fetchSearch().then(addCards);
+//     } catch (error) {
+//       console.log(error.message);
+//     }
+//   }
+//   })
 
-}
+// }
