@@ -90,6 +90,17 @@
     justify-content: space-between;
   }
 }
+.text-box {
+  @media screen and (min-width: 480px) {
+    height: 420px;
+  }
+  @media screen and (min-width: 768px) {
+    height: 400px;
+  }
+  @media screen and (min-width: 1280px) {
+    height: 370px;
+  }
+}
 
 .img-modal {
   width: 240px;
@@ -149,9 +160,9 @@ table {
 }
 
 .tbody-vote {
-  max-width: 10px;
+  width: 12px;
   text-align: center;
-  padding: 0;
+  padding: 0px 4px;
   color: $light-text-color;
   background-color: $accent-color;
   border-radius: 5px;
@@ -179,7 +190,7 @@ table {
 
   @media screen and (min-width: 768px) {
     width: 264px;
-    max-height: 260px;
+    max-height: 240px;
   }
 
   @media screen and (min-width: 1280px) {
@@ -199,6 +210,7 @@ table {
 
   @media screen and (min-width: 768px) {
     margin-left: 10px;
+
     justify-content: flex-start;
     gap: 15px;
   }
