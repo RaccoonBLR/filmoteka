@@ -51,7 +51,7 @@
   }
 
   @media screen and (min-width: 1280px) {
-    padding: 40px 12px;
+    padding: 40px 20px;
     width: 806px;
     height: 558px;
   }
@@ -87,7 +87,6 @@
 
   @media screen and (min-width: 768px) {
     flex-direction: row;
-    justify-content: space-between;
   }
 }
 .text-box {
@@ -117,8 +116,16 @@
 
   @media screen and (min-width: 1280px) {
     margin: 0 auto;
-    width: 375px;
+    width: 350px;
     height: 468px;
+  }
+}
+.content-box {
+  @media screen and (min-width: 768px) {
+    margin-left: 68px;
+  }
+  @media screen and (min-width: 1280px) {
+    margin-left: 16px;
   }
 }
 .modal-title {
@@ -151,14 +158,16 @@ table {
   }
 }
 .tbody-category {
+  width: 140px;
   padding-right: 60px;
   color: $modal-grey-text-color;
-
-  @media screen and (min-width: 1280px) {
-    padding-right: 80px;
-  }
 }
 
+.tbody {
+  @media screen and (min-width: 1280px) {
+    width: 370px;
+  }
+}
 .tbody-vote {
   width: 12px;
   text-align: center;
@@ -166,6 +175,14 @@ table {
   color: $light-text-color;
   background-color: $accent-color;
   border-radius: 5px;
+}
+.tbody-slash {
+  text-align: center;
+  width: 20px;
+}
+.tbody-votes {
+  width: 25px;
+  text-align: center;
 }
 
 // описание фильма about
@@ -177,9 +194,6 @@ table {
   margin-bottom: 5px;
 }
 
-.tbody-title {
-  max-width: 240px;
-}
 .textAbout {
   min-width: 240px;
   max-height: 236px;
@@ -189,7 +203,7 @@ table {
   overflow: auto;
 
   @media screen and (min-width: 768px) {
-    width: 264px;
+    width: 320px;
     max-height: 240px;
   }
 
