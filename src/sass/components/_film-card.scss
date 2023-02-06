@@ -84,3 +84,12 @@
     display: inline-flex;
   }
 }
+
+.film-card {
+  transition: scale $animations, box-shadow $animations;
+}
+
+.film-card:hover,  .film-card:focus {
+  scale: 1.03;
+  box-shadow: 4px -27px 69px -6px rgba(0,0,0,0.29);;
+}
