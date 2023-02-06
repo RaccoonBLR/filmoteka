@@ -9,6 +9,7 @@ class NewTrendApi {
       async fetchTrend() {
   try {
     const resp = await axios.get(`${TREND_URL}?api_key=${API_KEY}&page=${this.page}`);
+    pagination.currentSearchString = '';
     onResultsResetPagination(resp);
   return resp.data.results;
   } catch (err) {
@@ -25,7 +26,7 @@ class NewSearchApi {
 async fetchSearch() {
   try {
     const resp = await axios.get(`${SEARCH_URL}?api_key=${API_KEY}&query=${this.searchQuery}&page=${this.page}`);
-    console.log(resp.data);
+
     //змінюємо загальну кількість сторінок на пагінації
     onResultsResetPagination(resp);
     return resp.data.results;
@@ -48,6 +49,7 @@ async fetchSearch() {
   set query(newSearchQuery) {
 
     pagination.currentSearchString = this.searchQuery;
+    console.log(pagination.currentSearchString);
     return this.searchQuery = newSearchQuery;
   }
 }
