@@ -53,6 +53,16 @@ async function onSearch(e) {
 
     //wrongSearch
     if (dataForCatallog.length === 0) {
+      console.log(dataForCatallog);
+      TrendApi.fetchTrend()
+        .then(dataForCatallog => {
+          localStorage.setItem(
+            'current-movies',
+            JSON.stringify(dataForCatallog)
+          );
+          addCards(dataForCatallog);
+        })
+        .catch(console.log);
       hiddenWarning.classList.remove('hidden');
       hiddenWarning.textContent =
         'Search result not successful. Enter the correct movie name and';
