@@ -1,21 +1,39 @@
+import getGenres from './get-genres';
+import { IMAGE_BASE_URL } from './api-vars.js';
+import posterPlug from '../images/utility-images/poster-plug.png';
+
 export default function filmCardMarkupCreator(data) {
+  const genresValue = JSON.parse(localStorage.getItem('Ganre'));
+
   return data
     .map(film => {
-      const date = film.release_date ?? film.first_air_date;
-      const name = film.original_title ?? film.name;
+      const genres = getGenres(genresValue, film.genre_ids);
+      const title = film.title ?? film.name;
+
+      const poster = film.poster_path
+        ? IMAGE_BASE_URL + film.poster_path
+        : posterPlug;
+
+      let date =
+        Number.parseInt(film.release_date) ??
+        Number.parseInt(film.first_air_date);
+
+      if (Number.isNaN(date)) {
+        date = 'No Date';
+      }
 
       return `<article class="film-card">
-    <a src="#" class="film-card__link"  data-modal-open data-id='${film.id}'>
+    <a src="#" class="film-card__link"  data-id='${film.id}'>
       <img
         class="film-card__image"
-        src="https://image.tmdb.org/t/p/w500${film.poster_path}"
-        alt="${name}"
+        src="${poster}"
+        alt="${title}"
         width="395"
       />
-      <h2 class="film-card__title">${name}</h2>
+      <h2 class="film-card__title">${title}</h2>
       <div class="film-card__desc">
-        <p class="film-card__janre">Genre</p>
-        <p class="film-card__date">&nbsp|&nbsp${Number.parseInt(date)}</p>
+        <p class="film-card__janre">${genres}</p>
+        <p class="film-card__date">&nbsp|&nbsp${date}</p>
         <span class="film-card__rating">${film.vote_average.toFixed(1)}</span>
       </div>
     </a>
