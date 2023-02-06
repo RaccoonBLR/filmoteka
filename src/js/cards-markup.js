@@ -23,7 +23,7 @@ export default function filmCardMarkupCreator(data) {
       }
 
       return `<article class="film-card">
-    <a src="#" class="film-card__link"  data-modal-open data-id='${film.id}'>
+    <a src="#" class="film-card__link"  data-id='${film.id}'>
       <img
         class="film-card__image"
         src="${poster}"
