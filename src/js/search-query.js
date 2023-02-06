@@ -1,5 +1,6 @@
 import { NewTrendApi, NewSearchApi } from './news-api';
 import filmCardMarkupCreator from './cards-markup';
+import {Loader} from './loader'
 
 const carts = document.querySelector('.container-catalog');
 const form = document.querySelector('.search');
@@ -17,9 +18,11 @@ form.addEventListener('submit', onSearch);
 
 async function onSearch(e) {
   e.preventDefault();
-  // SearchApi.resetPage();
-  SearchApi.query = e.currentTarget.elements.searchQuery.value;
+  const loader = new Loader;
+  loader.show();
+  SearchApi.query = e.currentTarget.elements.searchQuery.value.trim();
   console.log(SearchApi.query);
+
   if (!SearchApi.query) {
     try {
       const dataForCatallog = await TrendApi.fetchTrend();
@@ -40,6 +43,7 @@ async function onSearch(e) {
   } catch(error) {
     console.log(error.message);
   }
+  loader.hide()
 }
 
 function addCards(data) {
