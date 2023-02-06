@@ -32,7 +32,7 @@ export default function filmCardMarkupCreator(data) {
       />
       <h2 class="film-card__title">${title}</h2>
       <div class="film-card__desc">
-        <p class="film-card__janre">${genres}</p>
+        <p class="film-card__genre">${genres}</p>
         <p class="film-card__date">&nbsp|&nbsp${date}</p>
         <span class="film-card__rating">${film.vote_average.toFixed(1)}</span>
       </div>
