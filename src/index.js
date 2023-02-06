@@ -2,9 +2,9 @@ import './sass/index.scss';
 
 import './js/footer-modal';
 
-import addGanre from './js/genre';
+import addGenre from './js/genre';
 
-addGanre();
+addGenre();
 
 import './js/news-api';
 
