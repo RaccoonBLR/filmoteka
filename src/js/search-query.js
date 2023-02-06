@@ -22,17 +22,19 @@ form.addEventListener('submit', onSearch);
 async function onSearch(e) {
   e.preventDefault();
   // SearchApi.resetPage();
-  SearchApi.query = e.currentTarget.elements.searchQuery.value;  //можливо варто додати trim()
+
+  SearchApi.query = e.currentTarget.elements.searchQuery.value; //можливо варто додати trim()
   console.log(SearchApi.query);
 
-  //Type something
-  // if (SearchApi.query === '') {
-  //   hiddenWarning.classList.remove('hidden');
-  //   hiddenWarning.textContent = 'Please type something';
-  //   setTimeout(function () {
-  //     hiddenWarning.classList.add('hidden');
-  //   }, 3000);
-  // }
+  // Type something
+  if (SearchApi.query === '') {
+    hiddenWarning.classList.remove('hidden');
+    hiddenWarning.textContent = 'Please type something';
+    setTimeout(function () {
+      hiddenWarning.classList.add('hidden');
+    }, 3000);
+  }
+
 
   if (!SearchApi.query) {
     try {
