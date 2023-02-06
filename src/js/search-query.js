@@ -1,10 +1,10 @@
 import { NewTrendApi, NewSearchApi } from './news-api';
 import filmCardMarkupCreator from './cards-markup';
 
+const hiddenWarning = document.querySelector('.search__text');
 const carts = document.querySelector('.container-catalog');
 const form = document.querySelector('.search');
 const searchInputEl = document.querySelector('.search__input');
-const hiddenWarning = document.querySelector('.search__text');
 
 const TrendApi = new NewTrendApi();
 const SearchApi = new NewSearchApi();
