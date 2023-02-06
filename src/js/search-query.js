@@ -1,6 +1,8 @@
 import { NewTrendApi, NewSearchApi } from './news-api';
 import filmCardMarkupCreator from './cards-markup';
+import {Loader} from './loader'
 import {pagination, onResultsResetPagination} from './pagination';
+
 
 
 const hiddenWarning = document.querySelector('.search__text');
@@ -22,6 +24,13 @@ form.addEventListener('submit', onSearch);
 
 async function onSearch(e) {
   e.preventDefault();
+
+  const loader = new Loader;
+  loader.show();
+  SearchApi.query = e.currentTarget.elements.searchQuery.value.trim();
+  console.log(SearchApi.query);
+
+
   // SearchApi.resetPage();
 
   SearchApi.query = e.currentTarget.elements.searchQuery.value;  //можливо варто додати trim()
@@ -80,6 +89,7 @@ async function onSearch(e) {
   } catch (error) {
     console.log(error.message);
   }
+  loader.hide()
 }
 
 function addCards(data) {
