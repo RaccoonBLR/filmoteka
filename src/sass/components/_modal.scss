@@ -99,6 +99,7 @@
   @media screen and (min-width: 1280px) {
     height: 370px;
   }
+  color: $primary-text-color;
 }
 
 .img-modal {
@@ -146,6 +147,7 @@
     font-size: 30px;
     line-height: calc(35 / 30);
   }
+  color: $primary-text-color
 }
 
 // таблица категорий фильма
@@ -183,6 +185,7 @@ table {
 .tbody-votes {
   width: 25px;
   text-align: center;
+  
 }
 
 // описание фильма about
