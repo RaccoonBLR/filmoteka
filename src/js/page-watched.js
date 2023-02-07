@@ -13,7 +13,7 @@ export default function addWatchedMarkup() {
   const markupArrParse = JSON.parse(markupArr);
   btnWatched.classList.add('library_btn--active');
   btnQueue.classList.remove('library_btn--active');
-  if (markupArrParse.length === 0) {
+  if (markupArrParse.length === 0 || !markupArrParse) {
     filmsNotFoundTwo();
   } else {
     const strokeMarkup = cardsMarkup(markupArrParse);
