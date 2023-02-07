@@ -4,6 +4,14 @@
 
   margin: 0 auto;
 
+  transition: scale $animations, box-shadow $animations;
+
+  &:hover,
+  &:focus {
+    scale: 1.03;
+    box-shadow: 4px -27px 69px -6px rgba(0, 0, 0, 0.29);
+  }
+
   @media screen and (max-width: 767px) {
     &:not(:last-child) {
       margin-bottom: 20px;
@@ -41,8 +49,6 @@
   line-height: 1.33;
   text-transform: uppercase;
   white-space: nowrap;
-
-  // color: $primary-text-color;
 
   @media screen and (min-width: 1280px) {
     font-size: 20px;
@@ -83,13 +89,4 @@
   @media screen and (min-width: 1280px) {
     display: inline-flex;
   }
-}
-
-.film-card {
-  transition: scale $animations, box-shadow $animations;
-}
-
-.film-card:hover,  .film-card:focus {
-  scale: 1.03;
-  box-shadow: 4px -27px 69px -6px rgba(0,0,0,0.29);;
 }
