@@ -44,7 +44,8 @@ async function onSearch(e) {
     setTimeout(function () {
       hiddenWarning.classList.add('hidden');
     }, 3000);
-  }
+     loader.hide()
+    }
 
 
   if (!SearchApi.query) {

@@ -9,10 +9,14 @@ $underline-color: #ff001b;
 $accent-color: #ff6b08;
 $background-highlight-color: #f7f7f7;
 $color__pagination--accent: #ff6b08;
+$color_loader-background: #ffffff80;
+$background-dark-theme: #1a1818;
+
+// fonts
+$main-font: 'Roboto', sans-serif;
+
+// for hover,focus
+$animations: 250ms cubic-bezier(0.4, 0, 0.2, 1);
 
 
-  // fonts
-    $main-font: 'Roboto', sans-serif;  
-
-    // for hover,focus
-    $animations: 250ms cubic-bezier(0.4, 0, 0.2, 1); 
+ 
