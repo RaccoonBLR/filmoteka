@@ -154,6 +154,7 @@ function onBackdropClick(event) {
   if (event.currentTarget === event.target) {
     document.querySelector('[data-modal]').classList.toggle('is-hidden');
   }
+  window.removeEventListener('keydown', onEscapeKeyPress);
 }
 
 function onEscapeKeyPress(event) {
@@ -161,5 +162,6 @@ function onEscapeKeyPress(event) {
   console.log(event.code);
   if (event.code === 'Escape') {
     document.querySelector('[data-modal]').classList.toggle('is-hidden');
+    window.removeEventListener('keydown', onEscapeKeyPress);
   }
 }
