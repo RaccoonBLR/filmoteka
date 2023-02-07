@@ -1,6 +1,7 @@
 import addQueuedMarkup from './page-queued.js';
 import addWatchedMarkup from './page-watched.js';
 import localStorageLibrary from './modalBtns.js';
+import posterPlug from '../images/utility-images/poster-plug.png';
 // Получение объекта из localStorage
 
 let currentMovies = JSON.parse(localStorage.getItem('watched-movies'));
@@ -55,8 +56,11 @@ function modalOpen() {
       genresArr.map(el => genresFilm.push(genresObj[el]));
 
       // Подстановка данных в шаблонный рядок модалки
-      const imgUrl = `https://image.tmdb.org/t/p/w500${currentFilm.poster_path}`;
-      console.log(currentFilm.poster_path);
+      // если нет картинки на постере, то заглушка
+      let imgUrl = !currentFilm.poster_path
+        ? posterPlug
+        : `https://image.tmdb.org/t/p/w500${currentFilm.poster_path}`;
+
       const title = currentFilm.title;
       const vote = Number(currentFilm.vote_average).toFixed(1);
       const votes = currentFilm.vote_count;
