@@ -117,7 +117,6 @@ modalOpen();
 
 // Функция закрытия модалки
 function modalClose() {
-  document.body.style.overflow = 'auto';
   const refs = {
     closeModalBtn: document.querySelector('[data-modal-close]'),
     modal: document.querySelector('[data-modal]'),
@@ -126,6 +125,7 @@ function modalClose() {
   refs.closeModalBtn.addEventListener('click', toggleModal);
   function toggleModal() {
     refs.modal.classList.toggle('is-hidden');
+    document.body.style.overflow = 'auto';
   }
   window.removeEventListener('keydown', onEscapeKeyPress);
 }
@@ -149,10 +149,11 @@ addGenre();
 //закриття по бекдропу та Esc
 const backdrop = document.querySelector('.backdrop');
 backdrop.addEventListener('click', onBackdropClick);
+
 function onBackdropClick(event) {
-  document.body.style.overflow = 'auto';
   if (event.currentTarget === event.target) {
     document.querySelector('[data-modal]').classList.toggle('is-hidden');
+    document.body.style.overflow = 'auto';
   }
 }
 
@@ -162,4 +163,5 @@ function onEscapeKeyPress(event) {
   if (event.code === 'Escape') {
     document.querySelector('[data-modal]').classList.toggle('is-hidden');
   }
+  removeEventListener('keydown', onEscapeKeyPress);
 }
