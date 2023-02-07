@@ -36,7 +36,7 @@ function modalOpen() {
     console.log(filmId);
 
     const currentFilm = currentMovies.find(({ id }) => id === filmId);
-
+   
     // ФУНКЦИЯ РАЗМЕТКИ МОДАЛКИ
     function modalMarkup() {
       //  формирование массива жанров карточки :
