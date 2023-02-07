@@ -5,14 +5,14 @@ const library = document.querySelector('.films-catalog');
 const watchedBtn = document.querySelector(`#watched-btn`);
 const queueBtn = document.querySelector(`#queue-btn`);
 
-queueBtn.addEventListener('click', onQueueBtn);
-function onQueueBtn() {
+queueBtn.addEventListener('click', addQueuedMarkup);
+export default function addQueuedMarkup() {
   const queuedMovies = JSON.parse(localStorage.getItem('queued-movies'));
 
   watchedBtn.classList.remove('library_btn--active');
   queueBtn.classList.add('library_btn--active');
 
-  if (queuedMovies.length === 0) {
+  if (queuedMovies.length === 0 || !queuedMovies) {
     filmsNotFoundTwo();
 
     return;

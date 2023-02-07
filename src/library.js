@@ -1,7 +1,5 @@
-import './js/page-watched';
-import './js/page-queued';
+import addWatchedMarkup from './js/page-watched';
+addWatchedMarkup();
 import './js/queue-watched-modal';
 import './js/lightSwitch';
-
- 
 
