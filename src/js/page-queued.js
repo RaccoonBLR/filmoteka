@@ -14,6 +14,7 @@ export default function addQueuedMarkup() {
 
   if (queuedMovies.length === 0) {
     filmsNotFoundTwo();
+
     return;
   }
   library.innerHTML = cardsMarkup(queuedMovies);
