@@ -1,6 +1,11 @@
 import "tui-pagination/dist/tui-pagination.css";
 import Pagination from 'tui-pagination';
+import axios from "axios";
+import { API_KEY, BASE_URL, TREND_URL, SEARCH_URL, MOVIE_DETAILS_URL } from "./api-vars";
+import filmCardMarkupCreator from './cards-markup';
 
+
+const cards = document.querySelector('.container-catalog');
 const container = document.getElementById('pagination');
 const options = { // default value of options
      totalItems: 0,
@@ -31,9 +36,96 @@ const options = { // default value of options
     
 };
 
+class NewPageTrendApi {
+  constructor() {
+    this.page = 1;
+  }
+      async fetchTrend() {
+  try {
+    const resp = await axios.get(`${TREND_URL}?api_key=${API_KEY}&page=${this.page}`);
+    pagination.currentSearchString = '';
+    
+  return resp.data.results;
+  } catch (err) {
+    console.log(err.message);
+  }
+  }
+};
+
+class NewPageSearchApi {
+    constructor() {
+        this.page = 1,
+            this.searchQuery = ''
+    }
+    async fetchSearch() {
+        try {
+            const resp = await axios.get(`${SEARCH_URL}?api_key=${API_KEY}&query=${this.searchQuery}&page=${this.page}`);
+            return resp.data.results;
+        } catch (err) {
+            console.log(err.message)
+        }
+    }
+}
+
+const TrendApi = new NewPageTrendApi();
+const SearchApi = new NewPageSearchApi();
+
 export const pagination = new Pagination(container, options);
 
 export function onResultsResetPagination(res) {
-    pagination.reset(res.data.total_results);    
+    pagination.reset(res.data.total_results);
 };
 
+function addCards(data) {
+  cards.innerHTML = filmCardMarkupCreator(data);
+}
+
+pagination.on('afterMove', event => {
+  movePage(event);
+});
+
+async function movePage(event) {
+  let URL_handler;
+
+  if (!pagination.currentSearchString) {
+    
+    URL_handler = TrendApi;
+  } else {
+    
+    URL_handler = SearchApi;
+    };
+
+
+pagination.on('afterMove', event => {
+        const currentPage = event.page;
+    URL_handler.page = currentPage;
+      SearchApi.searchQuery = document.querySelector('.search__input').value;
+        document.querySelector('.container-catalog').innerHTML = '';
+  onSearchTwo();
+  async function onSearchTwo(e) {
+  
+    if (!SearchApi.searchQuery) {
+      try {
+        const dataForCatalog = await TrendApi.fetchTrend();
+      
+        localStorage.setItem('current-movies', JSON.stringify(dataForCatalog));
+        await TrendApi.fetchTrend().then(addCards);
+       
+      } catch (error) {
+        console.log(error.message);
+      }
+      return;
+    }
+
+    try {
+      const dataForCatalog = await SearchApi.fetchSearch();
+      
+      localStorage.setItem('current-movies', JSON.stringify(dataForCatalog));
+      await SearchApi.fetchSearch().then(addCards);
+    } catch (error) {
+      console.log(error.message);
+    }
+  }
+  })
+
+};
