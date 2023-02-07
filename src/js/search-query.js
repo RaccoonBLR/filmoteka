@@ -2,6 +2,8 @@ import { NewTrendApi, NewSearchApi } from './news-api';
 import filmCardMarkupCreator from './cards-markup';
 import { Loader } from './loader';
 
+const loader = new Loader();
+
 const hiddenWarning = document.querySelector('.search__text');
 const carts = document.querySelector('.container-catalog');
 const form = document.querySelector('.search');
@@ -22,14 +24,13 @@ form.addEventListener('submit', onSearch);
 async function onSearch(e) {
   e.preventDefault();
 
-  const loader = new Loader;
   loader.show();
   SearchApi.query = e.currentTarget.elements.searchQuery.value.trim();
 
-  SearchApi.query = e.currentTarget.elements.searchQuery.value;  //можливо варто додати trim()
+  SearchApi.query = e.currentTarget.elements.searchQuery.value; //можливо варто додати trim()
   console.log(SearchApi.query);
 
- // Type something
+  // Type something
 
   if (SearchApi.query === '') {
     hiddenWarning.classList.remove('hidden');
@@ -37,10 +38,9 @@ async function onSearch(e) {
     setTimeout(function () {
       hiddenWarning.classList.add('hidden');
     }, 3000);
-    loader.hide()
-    return       
-    }
-
+    loader.hide();
+    return;
+  }
 
   if (!SearchApi.query) {
     try {
@@ -76,16 +76,15 @@ async function onSearch(e) {
       hiddenWarning.classList.remove('hidden');
       hiddenWarning.textContent =
         'Search result not successful. Enter the correct movie name';
-        setTimeout(function () {
-      hiddenWarning.classList.add('hidden');
-    }, 3000);
-     loader.hide()
+      setTimeout(function () {
+        hiddenWarning.classList.add('hidden');
+      }, 3000);
+      loader.hide();
     }
-
   } catch (error) {
     console.log(error.message);
   }
-  loader.hide()
+  loader.hide();
 }
 
 function addCards(data) {
