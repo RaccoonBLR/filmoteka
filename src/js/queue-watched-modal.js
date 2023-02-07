@@ -5,7 +5,7 @@ let currentMovies = JSON.parse(localStorage.getItem('watched-movies'));
 const queueBtn = document.querySelector('[data-queue]');
 const watchBtn = document.querySelector('[data-watch]');
 
-// queueBtn.addEventListener('click', addQueueJson);
+queueBtn.addEventListener('click', addQueueJson);
 watchBtn.addEventListener('click', addWatchJson);
 
 // Парс если в queue
