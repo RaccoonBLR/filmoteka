@@ -1,9 +1,6 @@
 import { NewTrendApi, NewSearchApi } from './news-api';
 import filmCardMarkupCreator from './cards-markup';
-import {Loader} from './loader'
-import {pagination, onResultsResetPagination} from './pagination';
-
-
+import { Loader } from './loader';
 
 const hiddenWarning = document.querySelector('.search__text');
 const carts = document.querySelector('.container-catalog');
@@ -28,10 +25,6 @@ async function onSearch(e) {
   const loader = new Loader;
   loader.show();
   SearchApi.query = e.currentTarget.elements.searchQuery.value.trim();
-  console.log(SearchApi.query);
-
-
-  // SearchApi.resetPage();
 
   SearchApi.query = e.currentTarget.elements.searchQuery.value;  //можливо варто додати trim()
   console.log(SearchApi.query);
@@ -82,9 +75,7 @@ async function onSearch(e) {
       hiddenWarning.classList.remove('hidden');
       hiddenWarning.textContent =
         'Search result not successful. Enter the correct movie name and';
-      setTimeout(function () {
         hiddenWarning.classList.add('hidden');
-      }, 3000);
     }
 
   } catch (error) {
@@ -102,60 +93,4 @@ searchInputEl.addEventListener('click', onInputClean);
 // функція для того, щоб при повторному пошуку інпуп очищувався сам (для зручності користувача)
 function onInputClean() {
   searchInputEl.value = '';
-}
-
-pagination.on('afterMove', event => {
-  movePage(event);
-});
-
-async function movePage(event) {
-  let URL_handler;
-
-  if (!pagination.currentSearchString) {
-    const handler_params = {
-      page: event.page,
-    };
-    URL_handler = TrendApi;
-  } else {
-    const handler_params = {
-      queryString: pagination.currentSearchString,
-      page: event.page,
-    };
-    console.log(handler_params.queryString);
-    URL_handler = SearchApi;
-  }
-
-
-pagination.on('afterMove', event => {
-        const currentPage = event.page;
-       URL_handler.page = currentPage;
-      SearchApi.query = document.querySelector('.search__input').value;
-  
-        document.querySelector('.container-catalog').innerHTML = '';
-  onSearchTwo();
-  async function onSearchTwo(e) {
-  
-    if (!SearchApi.query) {
-      try {
-        const dataForCatalog = await TrendApi.fetchTrend();
-      
-        localStorage.setItem('current-movies', JSON.stringify(dataForCatalog));
-        await TrendApi.fetchTrend().then(addCards);
-      } catch (error) {
-        console.log(error.message);
-      }
-      return;
-    }
-
-    try {
-      const dataForCatalog = await SearchApi.fetchSearch();
-      
-      localStorage.setItem('current-movies', JSON.stringify(dataForCatalog));
-      await SearchApi.fetchSearch().then(addCards);
-    } catch (error) {
-      console.log(error.message);
-    }
-  }
-  })
-
 }
