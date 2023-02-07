@@ -34,6 +34,7 @@ function modalOpen() {
 
   refs.openModalCard.addEventListener('click', openModal);
   function openModal(evt) {
+    document.body.style.overflow = 'hidden';
     const filmCard = evt.target.closest('.film-card__link');
     if (!filmCard) {
       return;
@@ -144,6 +145,7 @@ function modalClose() {
   refs.closeModalBtn.addEventListener('click', toggleModal);
   function toggleModal() {
     console.log('close');
+    document.body.style.overflow = 'auto';
     if (queueBtn.classList.contains('library_btn--active')) {
       addQueuedMarkup();
     }
@@ -177,6 +179,7 @@ const backdrop = document.querySelector('.backdrop');
 backdrop.addEventListener('click', onBackdropClick);
 function onBackdropClick(event) {
   if (event.currentTarget === event.target) {
+    document.body.style.overflow = 'auto';
     document.querySelector('[data-modal]').classList.toggle('is-hidden');
     console.log('close');
     if (queueBtn.classList.contains('library_btn--active')) {
@@ -191,6 +194,7 @@ function onBackdropClick(event) {
 
 function onEscapeKeyPress(event) {
   // console.log(event.code);
+  document.body.style.overflow = 'auto';
   if (event.code === 'Escape') {
     document.querySelector('[data-modal]').classList.toggle('is-hidden');
     console.log('close');
