@@ -189,6 +189,7 @@ function onBackdropClick(event) {
       addWatchedMarkup();
     }
   }
+  window.removeEventListener('keydown', onEscapeKeyPress);
 }
 
 function onEscapeKeyPress(event) {
