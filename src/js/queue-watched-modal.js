@@ -1,3 +1,5 @@
+import addQueuedMarkup from './page-queued.js';
+import addWatchedMarkup from './page-watched.js';
 import localStorageLibrary from './modalBtns.js';
 // Получение объекта из localStorage
 
@@ -43,7 +45,7 @@ function modalOpen() {
     console.log(filmId);
 
     const currentFilm = currentMovies.find(({ id }) => id === filmId);
-   
+
     // ФУНКЦИЯ РАЗМЕТКИ МОДАЛКИ
     function modalMarkup() {
       //  формирование массива жанров карточки :
@@ -137,6 +139,14 @@ function modalClose() {
 
   refs.closeModalBtn.addEventListener('click', toggleModal);
   function toggleModal() {
+    console.log('close');
+    if (queueBtn.classList.contains('library_btn--active')) {
+      addQueuedMarkup();
+    }
+    if (watchBtn.classList.contains('library_btn--active')) {
+      addWatchedMarkup();
+    }
+
     refs.modal.classList.toggle('is-hidden');
   }
   window.removeEventListener('keydown', onEscapeKeyPress);
@@ -164,12 +174,28 @@ backdrop.addEventListener('click', onBackdropClick);
 function onBackdropClick(event) {
   if (event.currentTarget === event.target) {
     document.querySelector('[data-modal]').classList.toggle('is-hidden');
+    console.log('close');
+    if (queueBtn.classList.contains('library_btn--active')) {
+      addQueuedMarkup();
+    }
+    if (watchBtn.classList.contains('library_btn--active')) {
+      addWatchedMarkup();
+    }
   }
+  window.removeEventListener('keydown', onEscapeKeyPress);
 }
 
 function onEscapeKeyPress(event) {
   // console.log(event.code);
   if (event.code === 'Escape') {
     document.querySelector('[data-modal]').classList.toggle('is-hidden');
+    console.log('close');
+    if (queueBtn.classList.contains('library_btn--active')) {
+      addQueuedMarkup();
+    }
+    if (watchBtn.classList.contains('library_btn--active')) {
+      addWatchedMarkup();
+    }
+    window.removeEventListener('keydown', onEscapeKeyPress);
   }
 }
