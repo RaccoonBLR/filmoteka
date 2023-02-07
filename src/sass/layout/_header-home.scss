@@ -185,3 +185,38 @@ color: $accent-color;
 .hidden {
   display: none;
 }
+
+.icon__heart {
+  
+  display: inline-flex;
+  
+  height: 100%;
+  padding-left: 14px;
+  padding-right: 14px;
+
+}
+
+.btn-heart {
+  margin-left: 10px;
+  box-sizing: border-box;
+  display: inline-flex;
+  flex-direction: row;
+  
+  
+  height: 44px;
+  width: auto;
+  padding: 0;
+
+p {
+    white-space: pre;
+  }
+
+  &:hover,
+  &:focus {
+      color: #0082D1;
+
+      .color--yellow{
+        color: #FFD100;
+      }
+    }
+}
