@@ -7,6 +7,7 @@ const sectionEl = document.querySelector('.films-catalog');
 
 btnWatched.addEventListener('click', addWatchedMarkup);
 
+
 export default function addWatchedMarkup() {
   const markupArr = localStorage.getItem('watched-movies');
   const markupArrParse = JSON.parse(markupArr);
@@ -18,4 +19,4 @@ export default function addWatchedMarkup() {
     const strokeMarkup = cardsMarkup(markupArrParse);
     sectionEl.innerHTML = strokeMarkup;
   }
-}
+  }
