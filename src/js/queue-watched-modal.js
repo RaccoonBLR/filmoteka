@@ -1,7 +1,20 @@
 import localStorageLibrary from './modalBtns.js';
+// Получение объекта из localStorage
+
+// Парс если в watched
+let currentMovies = JSON.parse(localStorage.getItem('watched-movies'));
+
+// Парс если в queue
+const queue = document.querySelector('[data-queue]');
+queue.addEventListener('click', addQueueJson);
+console.log(queue);
+function addQueueJson() {
+  currentMovies = JSON.parse(localStorage.getItem('queued-movies'));
+  console.log(currentMovies);
+  return currentMovies;
+}
 
 // <!-- функция открытия и разметки модалки
-
 function modalOpen() {
   const refs = {
     openModalCard: document.querySelector('.container-catalog'),
@@ -22,9 +35,7 @@ function modalOpen() {
     const filmId = Number(filmCard.dataset.id);
     console.log(filmId);
 
-    let currentMovies = JSON.parse(localStorage.getItem('current-movies'));
     const currentFilm = currentMovies.find(({ id }) => id === filmId);
-    console.log(currentFilm);
 
     // ФУНКЦИЯ РАЗМЕТКИ МОДАЛКИ
     function modalMarkup() {
@@ -51,56 +62,56 @@ function modalOpen() {
       }
 
       const markup = `<div class="img-box">
-         <img
-           class="img-modal"
-           src="${imgUrl}"
-           alt="${title}"
-           width="240px"
-         />
-       </div>
-       <div class="content-box">
-         <div class="text-box">
-           <h2 class="modal-title">${title}</h2>
-           <table>
-             <tbody class="tbody">
-               <tr>
-                 <td class="tbody-category">Vote / Votes</td>
-                 <td class="tbody-vote">${vote}</td>
-                 <td class="tbody-slash">/</td>
-                 <td class="tbody-votes">${votes}</td>
-                 <td></td>
-               </tr>
-               <tr>
-                 <td class="tbody-category">Popularity</td>
-                 <td colspan="4">${popularity}</td>
-                 <td></td>
-                 <td></td>
-               </tr>
-               <tr>
-                 <td class="tbody-category">Original Title</td>
-                 <td class="tbody-category__text" colspan="4">${title}</td>
-                 <td></td>
-                 <td></td>
-               </tr>
-               <tr>
-                 <td class="tbody-category">Genre</td>
-                 <td class="tbody-category__text" colspan="4">${genre}</td>
-                 <td></td>
-                 <td></td>
-               </tr>
-             </tbody>
-           </table>
-    
-           <h3 class="modal-subtitle">About</h3>
-           <p class="textAbout">
-             ${about}
-           </p>
+           <img
+             class="img-modal"
+             src="${imgUrl}"
+             alt="${title}"
+             width="240px"
+           />
          </div>
-         <div class="btn-container">
-           <button class="js-toWatched btn-click-modal">add to watched</button>
-           <button class="js-toQueue btn-click-modal">add to queue</button>
-         </div>
-       </div>`;
+         <div class="content-box">
+           <div class="text-box">
+             <h2 class="modal-title">${title}</h2>
+             <table>
+               <tbody class="tbody">
+                 <tr>
+                   <td class="tbody-category">Vote / Votes</td>
+                   <td class="tbody-vote">${vote}</td>
+                   <td class="tbody-slash">/</td>
+                   <td class="tbody-votes">${votes}</td>
+                   <td></td>
+                 </tr>
+                 <tr>
+                   <td class="tbody-category">Popularity</td>
+                   <td colspan="4">${popularity}</td>
+                   <td></td>
+                   <td></td>
+                 </tr>
+                 <tr>
+                   <td class="tbody-category">Original Title</td>
+                   <td class="tbody-category__text" colspan="4">${title}</td>
+                   <td></td>
+                   <td></td>
+                 </tr>
+                 <tr>
+                   <td class="tbody-category">Genre</td>
+                   <td class="tbody-category__text" colspan="4">${genre}</td>
+                   <td></td>
+                   <td></td>
+                 </tr>
+               </tbody>
+             </table>
+      
+             <h3 class="modal-subtitle">About</h3>
+             <p class="textAbout">
+               ${about}
+             </p>
+           </div>
+           <div class="btn-container">
+             <button class="js-toWatched btn-click-modal">add to watched</button>
+             <button class="js-toQueue btn-click-modal">add to queue</button>
+           </div>
+         </div>`;
 
       refs.modalContainer.innerHTML = markup;
     }
