@@ -37,7 +37,8 @@ async function onSearch(e) {
     setTimeout(function () {
       hiddenWarning.classList.add('hidden');
     }, 3000);
-     loader.hide()
+    loader.hide()
+    return       
     }
 
 
@@ -74,8 +75,11 @@ async function onSearch(e) {
         .catch(console.log);
       hiddenWarning.classList.remove('hidden');
       hiddenWarning.textContent =
-        'Search result not successful. Enter the correct movie name and';
-        hiddenWarning.classList.add('hidden');
+        'Search result not successful. Enter the correct movie name';
+        setTimeout(function () {
+      hiddenWarning.classList.add('hidden');
+    }, 3000);
+     loader.hide()
     }
 
   } catch (error) {

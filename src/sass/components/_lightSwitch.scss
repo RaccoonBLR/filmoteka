@@ -85,11 +85,16 @@ body.dark__theme {
   background-color: $background-dark-theme;
   color: $light-text-color;
    background-size: 1500px;
+
+   .dark-theme__library{
    background-image: url(../images/stars-clipart.png);;
+   background-size: 1500px;
 animation: animatedBackground 60s linear infinite;
 -moz-animation: animatedBackground 60s linear infinite;
 -webkit-animation: animatedBackground 60s linear infinite;
  -o-animation: animatedBackground 60s linear infinite;
+   }
+
 }
 
 body.dark__theme header,
