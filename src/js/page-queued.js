@@ -12,8 +12,9 @@ function onQueueBtn() {
   watchedBtn.classList.remove('library_btn--active');
   queueBtn.classList.add('library_btn--active');
 
-  if (!queuedMovies) {
+  if (queuedMovies.length === 0) {
     filmsNotFoundTwo();
+
     return;
   }
   library.innerHTML = cardsMarkup(queuedMovies);

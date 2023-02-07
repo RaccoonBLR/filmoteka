@@ -3,6 +3,7 @@ import localStorageLibrary from './modalBtns.js';
 // <!-- функция открытия и разметки модалки
 
 function modalOpen() {
+  
   const refs = {
     openModalCard: document.querySelector('.container-catalog'),
     modal: document.querySelector('[data-modal]'),
@@ -11,6 +12,7 @@ function modalOpen() {
 
   refs.openModalCard.addEventListener('click', openModal);
   function openModal(evt) {
+    document.body.style.overflow = "hidden";
     const filmCard = evt.target.closest('.film-card__link');
     if (!filmCard) {
       return;
@@ -107,11 +109,13 @@ function modalOpen() {
     modalMarkup();
     localStorageLibrary(currentFilm);
   }
+   
 }
 modalOpen();
 
 // Функция закрытия модалки
 function modalClose() {
+  document.body.style.overflow = "auto";
   const refs = {
     closeModalBtn: document.querySelector('[data-modal-close]'),
     modal: document.querySelector('[data-modal]'),
@@ -122,6 +126,7 @@ function modalClose() {
     refs.modal.classList.toggle('is-hidden');
   }
   window.removeEventListener('keydown', onEscapeKeyPress);
+  
 }
 modalClose();
 
@@ -144,14 +149,17 @@ addGenre();
 const backdrop = document.querySelector('.backdrop');
 backdrop.addEventListener('click', onBackdropClick);
 function onBackdropClick(event) {
+  document.body.style.overflow = "auto";
   if (event.currentTarget === event.target) {
     document.querySelector('[data-modal]').classList.toggle('is-hidden');
   }
 }
 
 function onEscapeKeyPress(event) {
+  document.body.style.overflow = "auto";
   console.log(event.code);
   if (event.code === 'Escape') {
     document.querySelector('[data-modal]').classList.toggle('is-hidden');
   }
+  
 }

@@ -11,12 +11,12 @@ btnWatched.addEventListener('click', addWatchedMarkup);
 
 function addWatchedMarkup() {
     const markupArr = localStorage.getItem('watched-movies');
+    const markupArrParse = JSON.parse(markupArr);
     btnWatched.classList.add('library_btn--active');
     btnQueue.classList.remove('library_btn--active');
-    if(!markupArr) {
+    if(markupArrParse.length === 0) {
         filmsNotFoundTwo();
     } else {
-        const markupArrParse = JSON.parse(markupArr);
         const strokeMarkup = cardsMarkup(markupArrParse);
         sectionEl.innerHTML = strokeMarkup;
     }

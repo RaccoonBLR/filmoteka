@@ -10,11 +10,13 @@ function onOpenFooterModal(event) {
   event.preventDefault();
   footerBackdrop.classList.remove('is-hidden');
   document.addEventListener('keydown', onEscPress);
+  document.body.style.overflow = "hidden";
 }
 
 function onCloseFooterModal(event) {
   footerBackdrop.classList.add('is-hidden');
   document.removeEventListener('keydown', onEscPress);
+  document.body.style.overflow = "auto";
 }
 
 function onClickFooterBackdrop(event) {
@@ -28,3 +30,4 @@ function onEscPress(event) {
     onCloseFooterModal();
   }
 }
+

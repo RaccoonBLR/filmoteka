@@ -1,15 +1,22 @@
 import localStorageLibrary from './modalBtns.js';
 // Получение объекта из localStorage
 
-// Парс если в watched
 let currentMovies = JSON.parse(localStorage.getItem('watched-movies'));
+const queueBtn = document.querySelector('[data-queue]');
+const watchBtn = document.querySelector('[data-watch]');
+
+queueBtn.addEventListener('click', addQueueJson);
+watchBtn.addEventListener('click', addWatchJson);
 
 // Парс если в queue
-const queue = document.querySelector('[data-queue]');
-queue.addEventListener('click', addQueueJson);
-console.log(queue);
 function addQueueJson() {
   currentMovies = JSON.parse(localStorage.getItem('queued-movies'));
+  console.log(currentMovies);
+  return currentMovies;
+}
+// Парс если в watch
+function addWatchJson() {
+  currentMovies = JSON.parse(localStorage.getItem('watched-movies'));
   console.log(currentMovies);
   return currentMovies;
 }
@@ -36,7 +43,7 @@ function modalOpen() {
     console.log(filmId);
 
     const currentFilm = currentMovies.find(({ id }) => id === filmId);
-
+   
     // ФУНКЦИЯ РАЗМЕТКИ МОДАЛКИ
     function modalMarkup() {
       //  формирование массива жанров карточки :
@@ -161,7 +168,7 @@ function onBackdropClick(event) {
 }
 
 function onEscapeKeyPress(event) {
-  console.log(event.code);
+  // console.log(event.code);
   if (event.code === 'Escape') {
     document.querySelector('[data-modal]').classList.toggle('is-hidden');
   }
