@@ -1,9 +1,9 @@
 import localStorageLibrary from './modalBtns.js';
+import posterPlug from '../images/utility-images/poster-plug.png';
 
 // <!-- функция открытия и разметки модалки
 
 function modalOpen() {
-  
   const refs = {
     openModalCard: document.querySelector('.container-catalog'),
     modal: document.querySelector('[data-modal]'),
@@ -12,7 +12,7 @@ function modalOpen() {
 
   refs.openModalCard.addEventListener('click', openModal);
   function openModal(evt) {
-    document.body.style.overflow = "hidden";
+    document.body.style.overflow = 'hidden';
     const filmCard = evt.target.closest('.film-card__link');
     if (!filmCard) {
       return;
@@ -37,8 +37,11 @@ function modalOpen() {
       genresArr.map(el => genresFilm.push(genresObj[el]));
 
       // Подстановка данных в шаблонный рядок модалки
-      const imgUrl = `https://image.tmdb.org/t/p/w500${currentFilm.poster_path}`;
-      console.log(currentFilm.poster_path);
+      // если нет картинки на постере, то заглушка
+      let imgUrl = !currentFilm.poster_path
+        ? posterPlug
+        : `https://image.tmdb.org/t/p/w500${currentFilm.poster_path}`;
+
       const title = currentFilm.title;
       const vote = Number(currentFilm.vote_average).toFixed(1);
       const votes = currentFilm.vote_count;
@@ -55,7 +58,7 @@ function modalOpen() {
       const markup = `<div class="img-box">
          <img
            class="img-modal"
-           src="${imgUrl}"
+           src=${imgUrl}
            alt="${title}"
            width="240px"
          />
@@ -109,13 +112,12 @@ function modalOpen() {
     modalMarkup();
     localStorageLibrary(currentFilm);
   }
-   
 }
 modalOpen();
 
 // Функция закрытия модалки
 function modalClose() {
-  document.body.style.overflow = "auto";
+  document.body.style.overflow = 'auto';
   const refs = {
     closeModalBtn: document.querySelector('[data-modal-close]'),
     modal: document.querySelector('[data-modal]'),
@@ -126,7 +128,6 @@ function modalClose() {
     refs.modal.classList.toggle('is-hidden');
   }
   window.removeEventListener('keydown', onEscapeKeyPress);
-  
 }
 modalClose();
 
@@ -149,17 +150,16 @@ addGenre();
 const backdrop = document.querySelector('.backdrop');
 backdrop.addEventListener('click', onBackdropClick);
 function onBackdropClick(event) {
-  document.body.style.overflow = "auto";
+  document.body.style.overflow = 'auto';
   if (event.currentTarget === event.target) {
     document.querySelector('[data-modal]').classList.toggle('is-hidden');
   }
 }
 
 function onEscapeKeyPress(event) {
-  document.body.style.overflow = "auto";
+  document.body.style.overflow = 'auto';
   console.log(event.code);
   if (event.code === 'Escape') {
     document.querySelector('[data-modal]').classList.toggle('is-hidden');
   }
-  
 }
