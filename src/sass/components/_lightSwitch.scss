@@ -141,3 +141,21 @@ body.dark__theme footer {
       background-position: -150px 600px
   }
 }
+
+.footer__dark-theme {height: 100px;
+  padding-top: 28px;
+
+  @include tablet {
+    height: 79px;
+  }
+
+  @include desktop {
+    height: 77px;
+  }
+  background-color: rgb(44, 43, 43);
+  
+}
+
+.footer-paragraph__dark-theme{
+  color: $light-text-color;
+}
