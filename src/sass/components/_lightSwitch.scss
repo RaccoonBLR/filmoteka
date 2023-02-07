@@ -74,6 +74,45 @@ input:checked + .slider::before {
 body.dark__theme {
   background-color: $background-dark-theme;
   color: $light-text-color;
+
+  #pagination .tui-page-btn {
+      color: $body-main-color;
+    }
+
+  #pagination .tui-ico-first {
+      background-position: -13px 0;
+  }
+  
+  #pagination .tui-is-disabled .tui-ico-first {
+      background-position: 0 0;
+  }
+
+  #pagination .tui-is-disabled .tui-ico-prev {
+      background-position: -26px 0;
+  }
+  #pagination .tui-ico-prev {
+      background-position: -26px -12px;
+  }
+
+  #pagination .tui-ico-next {
+    background-position: -21px -24px;
+  }
+
+  #pagination .tui-is-disabled .tui-ico-next {
+  background-position: -13px -24px;
+  }
+
+  #pagination .tui-is-disabled .tui-ico-last {
+      background-position: 0 -12px;
+  }
+
+  #pagination .tui-ico-last {
+      background-position: -13px -12px;
+  }
+
+  #pagination .tui-page-btn:hover {
+      background-color: $accent-color;
+    }
 }
 
 body.dark__theme header,
@@ -81,4 +120,4 @@ body.dark__theme footer {
   box-shadow: 0px 1px 58px 12px rgba(255, 85, 0, 0.7),
     1px 2px 4px 0px rgba(255, 85, 0, 0.7), 2px 4px 8px 0px rgba(255, 85, 0, 0.7),
     2px 4px 16px 0px rgba(255, 85, 0, 0.7);
-}
+} 
