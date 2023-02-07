@@ -114,38 +114,39 @@ async function movePage(event) {
     URL_handler = TrendApi;
   } else {
     URL_handler = SearchApi;
-  }
-
-  pagination.on('afterMove', event => {
-    const currentPage = event.page;
-    URL_handler.page = currentPage;
-    SearchApi.searchQuery = document.querySelector('.search__input').value;
-    document.querySelector('.container-catalog').innerHTML = '';
-    onSearchTwo();
-    async function onSearchTwo(e) {
+  };
+  
+      const currentPage = event.page;
+      URL_handler.page = currentPage;
+      SearchApi.searchQuery = document.querySelector('.search__input').value;
+      document.querySelector('.container-catalog').innerHTML = '';
+      onSearchTwo();
+  
+      async function onSearchTwo(e) {
+        console.log('hi');
       if (!SearchApi.searchQuery) {
         try {
           const dataForCatalog = await TrendApi.fetchTrend();
-
-          localStorage.setItem(
-            'current-movies',
-            JSON.stringify(dataForCatalog)
-          );
+      
+          localStorage.setItem('current-movies', JSON.stringify(dataForCatalog));
           await TrendApi.fetchTrend().then(addCards);
+       
         } catch (error) {
-          console.log(error.message);
+
+        console.log(error.message);
         }
         return;
       }
 
-      try {
-        const dataForCatalog = await SearchApi.fetchSearch();
-
-        localStorage.setItem('current-movies', JSON.stringify(dataForCatalog));
-        await SearchApi.fetchSearch().then(addCards);
-      } catch (error) {
-        console.log(error.message);
-      }
+    try {
+      const dataForCatalog = await SearchApi.fetchSearch();
+      
+      localStorage.setItem('current-movies', JSON.stringify(dataForCatalog));
+      await SearchApi.fetchSearch().then(addCards);
+    } catch (error) {
+      console.log(error.message);
     }
-  });
-}
+  }
+
+
+};
