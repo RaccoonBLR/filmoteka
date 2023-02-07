@@ -60,11 +60,21 @@ input:checked + .slider::before {
   }
 }
 
-.slider.round {
+.slider.round { 
   border-radius: 34px;
   @media screen and (max-width: 768px) {
     width: 28px;
+    position: absolute;
+  right: 0;
+  top: 40px;
   }
+}
+
+input:checked +.slider.round::before {
+   @media screen and (max-width: 768px) {
+    background-color: $accent-color;
+   }
+  
 }
 
 .slider.round::before {
@@ -74,6 +84,12 @@ input:checked + .slider::before {
 body.dark__theme {
   background-color: $background-dark-theme;
   color: $light-text-color;
+   background-size: 1500px;
+   background-image: url(../images/stars-clipart.png);;
+animation: animatedBackground 60s linear infinite;
+-moz-animation: animatedBackground 60s linear infinite;
+-webkit-animation: animatedBackground 60s linear infinite;
+ -o-animation: animatedBackground 60s linear infinite;
 }
 
 body.dark__theme header,
@@ -81,4 +97,42 @@ body.dark__theme footer {
   box-shadow: 0px 1px 58px 12px rgba(255, 85, 0, 0.7),
     1px 2px 4px 0px rgba(255, 85, 0, 0.7), 2px 4px 8px 0px rgba(255, 85, 0, 0.7),
     2px 4px 16px 0px rgba(255, 85, 0, 0.7);
+}
+
+/* // BackgroundAnimation */
+
+@keyframes animatedBackground {
+  0% {
+      background-position: 0 0
+  }
+  100% {
+      background-position: -150px 600px 
+  }
+}
+
+@-moz-keyframes animatedBackground {
+  0% {
+      background-position: 0 0
+  }
+  100% {
+      background-position: -150px 600px
+  }
+}
+
+@-webkit-keyframes animatedBackground {
+  0% {
+      background-position: 0 0
+  }
+  100% {
+      background-position: -150px 600px
+  }
+}
+
+@-o-keyframes animatedBackground {
+  0% {
+      background-position: 0 0
+  }
+  100% {
+      background-position: -150px 600px
+  }
 }
