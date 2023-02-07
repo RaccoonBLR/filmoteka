@@ -9,9 +9,7 @@
   transition: opacity $animations;
   z-index: 10;
 }
-body {
-  overflow: hidden;
-}
+
 .backdrop.is-hidden {
   opacity: 0;
   pointer-events: none;
