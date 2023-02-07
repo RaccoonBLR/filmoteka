@@ -13,3 +13,5 @@ import './js/pagination';
 import './js/modalOnClick';
 
 import './js/lightSwitch';
+
+import './js/btn-up';
