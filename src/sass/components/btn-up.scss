@@ -6,7 +6,7 @@
 
 .up-btn-wrapper {
     position: fixed;
-    bottom: 39px;
+    
     right: 10px;
 
     z-index: 10;
@@ -25,17 +25,17 @@
     }
 
     @media screen and (min-width: 320px) {
-        bottom: 39px;
+        bottom: 16vh;
         right: calc(((100vw - 340px) / 2));
     }
 
     @media screen and (min-width: 768px) {
-        bottom: 39px;
+        bottom: 12vh;
         right: calc(((100vw - 768px) / 2));
     }
 
     @media screen and (min-width: 1280px) {
-        bottom: 55px;
+        bottom: 12vh;
         right: calc(((100vw - 1280px) / 2));
     }
 }
