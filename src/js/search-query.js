@@ -89,5 +89,4 @@ function addCards(data) {
   carts.innerHTML = filmCardMarkupCreator(data);
 }
 
-searchInputEl.addEventListener('click', onInputClean);
 
