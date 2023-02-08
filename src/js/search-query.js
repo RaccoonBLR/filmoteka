@@ -56,7 +56,7 @@ async function onSearch(e) {
     const dataForCatalog = await SearchApi.fetchSearch();
     console.log(dataForCatalog);
     localStorage.setItem('current-movies', JSON.stringify(dataForCatalog));
-    await SearchApi.fetchSearch().then(addCards);
+    addCards(dataForCatalog);
 
     //wrongSearch
 
