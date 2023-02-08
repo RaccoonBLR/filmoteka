@@ -1,7 +1,7 @@
-const icon = document.querySelector('.fas');
 const switchDayNight = document.querySelector('.day-night-switch');
-const footerEl = document.querySelector(".footer")
-const footerTextEl = document.querySelector(".footer-paragraph") 
+const footerEl = document.querySelector('.footer');
+const footerTextEl = document.querySelector('.footer-paragraph');
+const title = document.querySelector('.switch-title');
 
 if (localStorage.getItem('darkMode') === null) {
   localStorage.setItem('darkMode', 'false');
@@ -29,15 +29,17 @@ switchDayNight.addEventListener('change', () => {
 
 function addDarkTheme() {
   document.body.classList.add('dark__theme');
-  footerEl.classList.add("footer__dark-theme")
-  footerEl.classList.remove("footer")
-  footerEl.classList.add("footer-paragraph__dark-theme")
-  footerEl.classList.remove("footer-paragraph")
+  footerEl.classList.add('footer__dark-theme');
+  footerEl.classList.remove('footer');
+  footerEl.classList.add('footer-paragraph__dark-theme');
+  footerEl.classList.remove('footer-paragraph');
+  title.textContent = 'Switch to ligth theme';
 }
 function removeDarkTheme() {
   document.body.classList.remove('dark__theme');
-  footerEl.classList.add("footer")
-  footerEl.classList.remove("footer__dark-theme")
-  footerEl.classList.add("footer-paragraph")
-  footerEl.classList.remove("footer-paragraph__dark-theme")
+  footerEl.classList.add('footer');
+  footerEl.classList.remove('footer__dark-theme');
+  footerEl.classList.add('footer-paragraph');
+  footerEl.classList.remove('footer-paragraph__dark-theme');
+  title.textContent = 'Switch to dark theme';
 }
