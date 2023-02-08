@@ -3,10 +3,8 @@ import Pagination from 'tui-pagination';
 import axios from 'axios';
 import {
   API_KEY,
-  BASE_URL,
   TREND_URL,
   SEARCH_URL,
-  MOVIE_DETAILS_URL,
 } from './api-vars';
 import filmCardMarkupCreator from './cards-markup';
 import { Loader } from './loader';
@@ -15,6 +13,7 @@ const loader = new Loader();
 
 const cards = document.querySelector('.container-catalog');
 const container = document.getElementById('pagination');
+const searchInputEl = document.querySelector('.search__input');
 
 const options = { // default value of options
      totalItems: 0,
@@ -96,17 +95,15 @@ export function onResultsResetPagination(res) {
 function addCards(data) {
   cards.innerHTML = filmCardMarkupCreator(data);
 }
-pagination.on('beforeMove', () => {
-  loader.show();
-});
 
 pagination.on('afterMove', event => {
   movePage(event);
-  loader.hide();
 });
 
 async function movePage(event) {
    let URL_handler;
+   let currentRequest = searchInputEl.value.trim();
+  pagination.currentSearchString = currentRequest;
 
   if (!pagination.currentSearchString) {
     URL_handler = TrendApi;
@@ -116,7 +113,8 @@ async function movePage(event) {
 
   const currentPage = event.page;
   URL_handler.page = currentPage;
-      SearchApi.searchQuery = document.querySelector('.search__input').value;
+ 
+      SearchApi.searchQuery = currentRequest;
       document.querySelector('.container-catalog').innerHTML = '';
       onSearchTwo();
   
