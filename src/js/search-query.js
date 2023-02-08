@@ -7,7 +7,7 @@ const loader = new Loader();
 const hiddenWarning = document.querySelector('.search__text');
 const carts = document.querySelector('.container-catalog');
 const form = document.querySelector('.search');
-const searchInputEl = document.querySelector('.search__input');
+//const searchInputEl = document.querySelector('.search__input');
 
 const TrendApi = new NewTrendApi();
 const SearchApi = new NewSearchApi();
@@ -26,7 +26,6 @@ async function onSearch(e) {
 
   loader.show();
   SearchApi.query = e.currentTarget.elements.searchQuery.value.trim();
-  // console.log(SearchApi.query);
 
   // Type something
 
@@ -45,7 +44,7 @@ async function onSearch(e) {
       const dataForCatalog = await TrendApi.fetchTrend();
       console.log(dataForCatalog);
       localStorage.setItem('current-movies', JSON.stringify(dataForCatalog));
-      await TrendApi.fetchTrend().then(addCards);
+      addCards(dataForCatalog);
     } catch (error) {
       console.log(error.message);
     }
@@ -54,14 +53,14 @@ async function onSearch(e) {
 
   try {
     const dataForCatalog = await SearchApi.fetchSearch();
-    console.log(dataForCatalog);
+    //console.log(dataForCatalog);
     localStorage.setItem('current-movies', JSON.stringify(dataForCatalog));
     addCards(dataForCatalog);
 
     //wrongSearch
 
     if (dataForCatalog.length === 0) {
-      console.log(dataForCatalog);
+      //console.log(dataForCatalog);
       TrendApi.fetchTrend()
         .then(dataForCatalog => {
           localStorage.setItem(

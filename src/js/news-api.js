@@ -66,8 +66,6 @@ class NewSearchApi {
     return this.searchQuery;
   }
   set query(newSearchQuery) {
-    pagination.currentSearchString = this.searchQuery;
-    console.log(pagination.currentSearchString);
     return (this.searchQuery = newSearchQuery);
   }
 }
