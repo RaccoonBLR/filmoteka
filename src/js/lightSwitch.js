@@ -1,4 +1,3 @@
-const icon = document.querySelector('.fas');
 const switchDayNight = document.querySelector('.day-night-switch');
 const footerEl = document.querySelector('.footer');
 const footerTextEl = document.querySelector('.footer-paragraph');
