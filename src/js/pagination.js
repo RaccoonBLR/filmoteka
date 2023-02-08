@@ -56,7 +56,6 @@ class NewPageTrendApi {
         `${TREND_URL}?api_key=${API_KEY}&page=${this.page}`
       );
       pagination.currentSearchString = '';
-
       return resp.data.results;
     } catch (err) {
       console.log(err.message);
@@ -98,41 +97,25 @@ function addCards(data) {
   cards.innerHTML = filmCardMarkupCreator(data);
 }
 
-pagination.on('beforeMove', () => {
-  loader.show();
-});
 
 pagination.on('afterMove', event => {
   movePage(event);
-  loader.hide();
 });
 
 async function movePage(event) {
-  let URL_handler;
 
-  if (!pagination.currentSearchString) {
-    URL_handler = TrendApi;
-  } else {
-    URL_handler = SearchApi;
-  };
-  
       const currentPage = event.page;
-      URL_handler.page = currentPage;
-      SearchApi.searchQuery = document.querySelector('.search__input').value;
       document.querySelector('.container-catalog').innerHTML = '';
       onSearchTwo();
   
       async function onSearchTwo(e) {
-        console.log('hi');
-      if (!SearchApi.searchQuery) {
+        
+        if (!pagination.currentSearchString) {
         try {
           const dataForCatalog = await TrendApi.fetchTrend();
-      
           localStorage.setItem('current-movies', JSON.stringify(dataForCatalog));
-          await TrendApi.fetchTrend().then(addCards);
-       
+          addCards(dataForCatalog);
         } catch (error) {
-
         console.log(error.message);
         }
         return;
@@ -140,13 +123,10 @@ async function movePage(event) {
 
     try {
       const dataForCatalog = await SearchApi.fetchSearch();
-      
       localStorage.setItem('current-movies', JSON.stringify(dataForCatalog));
-      await SearchApi.fetchSearch().then(addCards);
+      addCards(dataForCatalog);
     } catch (error) {
       console.log(error.message);
     }
   }
-
-
 };
