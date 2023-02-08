@@ -1,73 +1,104 @@
-# Parcel template
+# Filmoteka
 
-This project was created with Parcel. For familiarization and setting additional features [refer to documentation](https://parceljs.org/).
+The Filmoteka project is designed for quick, convenient and comfortable
+searching films of interest to the user, obtaining information about them and
+creating own libraries to save selected movies.
 
-## Preparing a new project
+## Team of project developers:
 
-1. Make sure you have an LTS version of Node.js installed on your computer.
-   [Download and install](https://nodejs.org/en/) if needed.
-2. Clone this repository.
-3. Change the folder name from `parcel-project-template` to the name of your project.
-4. Create a new empty GitHub repository.
-5. Open the project in VSCode, launch the terminal and link the project to the GitHub repository
-   [by instructions](https://docs.github.com/en/get-started/getting-started-with-git/managing-remote-repositories#changing-a-remote-repositorys-url).
-6. Install the project's dependencies in the terminal with the `npm install` command.
-7. Start development mode by running the `npm start` command.
-8. Go to [http://localhost:1234](http://localhost:1234) in your browser.
-   This page will automatically reload after saving changes to the project files.
+- team lead - Maryna Gembarska;
+- scrum master - Oleksandr Chaban;
+- developer - Andrii Muzyka;
+- developer - Larysa Melnychenko;
+- developer - Oleksandr Lukyanenko;
+- developer - Anton Logvinenko;
+- developer - Maryana Broda;
+- developer - Konstantin Zabolotniy;
+- developer - Vitaly Tymechko;
+- developer - Victoria Slobodeniuk;
+- developer - Ruslan Yankovskyi;
+- developer - Ihor Polyakov;
+- developer - Rodion Kosenko;
+- developer - Oleksandr Poluvyan;
+- developer - Tetyana Tytarenko;
+- developer - Daryna Tsybenko.
 
-## Files and folders
+The project was implemented using the following technologies: HTML, CSS, JS,
+Parcel, Axios, Loadash, Tui-pagination, Scrum, Trello.
 
-- All stylesheet parshas should be in the `src/sass` folder and imported into the page stylesheets. For example, for `index.html` the style file is named `index.scss`.
-- Add images to the `src/images` folder. The assembler optimizes them, but only when deploying the production version of the project. All this happens in the cloud so as not to burden your computer, as it can take a long time on weak machines.
+REST API was used in the project - https://api.themoviedb.org.
 
-## Deploy
+## With the help of this project, you will be able to:
 
-To set up a project deployment, you need to perform a few additional steps to set up your repository. Go to the `Settings` tab and in the `Actions` subsection select the `General` item.
+1. See the list of trending movies.
+2. Search for a movie.
+3. Find information on the specified film.
+4. Create your own library of watched movies.
+5. Create your own library with a queue of movies to watch.
+6. Conveniently and quickly add and remove necessary movies from libraries.
 
-![GitHub actions settings](./assets/actions-config-step-1.png)
+Additional benefits of the project:
 
-Scroll the page to the last section, in which make sure the options are selected as in the following image and click `Save`. Without these settings, the build will not have enough rights to automate the deployment process.
+- when using the project, it is possible to choose a light/dark page background;
+- quick return to the beginning of the page, when using the button;
+- convenient transition between project pages;
+- an opportunity to donate to the support of the Armed Forces of Ukraine.
 
-![GitHub actions settings](./assets/actions-config-step-2.png)
+## Instructions for use.
 
-The production version of the project will be automatically built and deployed to GitHub Pages, in the `gh-pages` branch, every time the `main` branch is updated. For example, after a direct push or an accepted pull request. To do this, you need to edit the `homepage` field and the `build` script in the `package.json` file, replacing `your_username` and `your_repo_name` with your own, and submit the changes to GitHub.
+Main page - 'Home'.
 
+1. A list of trending movies is automatically displayed on the main page.
+2. When clicking on the 'Filmoteka' logo (located in the upper left corner
+   pages) the user will always be returned to the main page.
+3. When clicking on the 'Home' button (location - upper right corner of the
+   page) the user is returned to the main page.
+4. When clicking on the 'My Library' button (located in the upper right corner
+   pages) - transition to the library page.
+5. When clicking on the 'Support Ukraine' button (location center at the top of
+   the page) you have the opportunity to donate the Armed Forces of Ukraine.
+6. Slider-switch (location - lower right corner of the header page) is designed
+   to change the background color of the page to dark or light.
+7. In the upper central part, in the search bar, you need to enter the name of
+   the film, which you are interested in, then press the search button
+   (magnifying glass icon).
+8. Movies matching your search criteria will be uploaded to the page.
+9. When clicking on the selected movie, a modal window appears, with the help of
+   which:
+   - information about this film is provided;
+   - using the 'Add to watched' button (location - lower part modal window) the
+     user has the opportunity to add this movie to his library of watched
+     movies;
+   - using the 'Add to queue' button (location - the lower part of the modal
+     windows) the user has the opportunity to add this movie to his library for
+     future review.
+10. Thanks to the functionality under the list of films, the user can
+    conveniently move between pages.
+11. When clicking on the button with the 'up arrow' icon, the user quickly
+    returns to the top of the page.
+12. In the lower part of the main page, the user can see the composition of the
+    team developers of this project by clicking on the 'By GoIT Students' link.
 
-```json
-"homepage": "https://your_username.github.io/your_repo_name/",
-"scripts": {
-  "build": "parcel build src/*.html --public-url /your_repo_name/"
-},
-```
+Libraries page - 'My library'.
 
-Next, you need to go to the settings of the GitHub repository (`Settings` > `Pages`) and set the distribution of the production version of files from the `/root` folder of the `gh-pages` branch, if this was not done automatically.
+1. When clicking on the 'Filmoteka' logo (located in the upper left corner
+   pages) the user will always be returned to the main page.
+2. When clicking on the 'Home' button (location - upper right corner of the
+   page) the user is returned to the main page.
+3. When clicking on the 'My Library' button (located in the upper right corner
+   pages) - transition to the library page.
+4. Slider-switch (location - lower right corner of the header page) is designed
+   to change the background color of the page to dark or light.
+5. When clicking on the 'Watched' button, the user sees a list of films in his
+   libraries that have already been viewed.
+6. When clicking on the 'Queue' button, the user sees a list of his own films
+   libraries with a queue for viewing.
+7. When selecting a movie from these libraries, a modal window with information
+   appears about the movie and the ability to add/remove it from your own
+   libraries.
 
-![GitHub Pages settings](./assets/repo-settings.png)
+# See also
 
-### Deployment status
-
-The deployment status of the latest commit is displayed with an icon next to its ID.
-
-- **Yellow color** - the project is being built and deployed.
-- **Green color** - deployment completed successfully.
-- **Red color** - an error occurred during linting, build or deployment.
-
-More detailed information about the status can be viewed by clicking on the icon, and in the drop-down window, follow the link `Details`.
-
-![Deployment status](./assets/status.png)
-
-### Live page
-
-After some time, usually a couple of minutes, the live page can be viewed at the address specified in the edited `homepage` property. For example, here is a link to a live version for this repository
-[https://goitacademy.github.io/parcel-project-template](https://goitacademy.github.io/parcel-project-template).
-
-If a blank page opens, make sure there are no errors in the `Console` tab related to incorrect paths to the CSS and JS files of the project (**404**). Most likely you have the wrong value for the `homepage` property or the `build` script in the `package.json` file.
-
-## How it works
-
-![How it works](./assets/how-it-works.png)
-
-1. After each push to the `main` branch of the GitHub repository, a special script (GitHub Action) is launched from the `.github/workflows/deploy.yml` file.
-2. All repository files are copied to the server, where the project is initialized and built before deployment.
-3. If all steps are successful, the built production version of the project files is sent to the `gh-pages` branch. Otherwise, the script execution log will indicate what the problem is.
+This project was created thanks to the inspiration, cohesive and friendly work
+of the team developers. Many thanks for participating in the creation of this
+project to each of them!!!
