@@ -26,9 +26,7 @@ async function onSearch(e) {
 
   loader.show();
   SearchApi.query = e.currentTarget.elements.searchQuery.value.trim();
-
-  SearchApi.query = e.currentTarget.elements.searchQuery.value; //можливо варто додати trim()
-  console.log(SearchApi.query);
+  // console.log(SearchApi.query);
 
   // Type something
 
@@ -93,7 +91,3 @@ function addCards(data) {
 
 searchInputEl.addEventListener('click', onInputClean);
 
-// функція для того, щоб при повторному пошуку інпуп очищувався сам (для зручності користувача)
-function onInputClean() {
-  searchInputEl.value = '';
-}
