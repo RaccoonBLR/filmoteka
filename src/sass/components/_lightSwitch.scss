@@ -30,7 +30,8 @@
   }
 }
 
-.theme__switch-wrapper span {
+.theme__switch-wrapper span,
+.theme__switch-wrapper__library span {
   margin-right: 10px;
   font-size: 1rem;
   @media screen and (max-width: 767px) {
@@ -71,11 +72,11 @@
   width: 20px;
 }
 
-.slider__library::before {
-  @media screen and (min-width: 768px) {
-    left: 10px;
-  }
-}
+// .slider__library::before {
+//   @media screen and (min-width: 768px) {
+//     left: 10px;
+//   }
+// }
 
 input:checked + .slider {
   background: $accent-color;
@@ -165,9 +166,5 @@ body.dark__theme footer {
 }
 
 .footer-paragraph__dark-theme {
-  color: $light-text-color;
-}
-
-.switch-title {
   color: $light-text-color;
 }
