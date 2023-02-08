@@ -2,32 +2,32 @@
   display: flex;
   align-items: center;
   position: absolute;
-  
-  @media screen and (max-width:767px) {
+
+  @media screen and (max-width: 767px) {
     right: 30px;
-    top: 190px;       
+    top: 190px;
   }
 
   @media screen and (min-width: 768px) {
-  right: 85px;
-  top: 175px;
-}  
+    right: 85px;
+    top: 175px;
+  }
 }
 
 .theme__switch-wrapper__library {
   display: flex;
   align-items: center;
   position: absolute;
-  
-  @media screen and (max-width:767px) {
+
+  @media screen and (max-width: 767px) {
     right: 30px;
-    top: 160px;       
+    top: 160px;
   }
 
   @media screen and (min-width: 768px) {
-  right: 85px;
-  top: 145px;
-}  
+    right: 85px;
+    top: 145px;
+  }
 }
 
 .theme__switch-wrapper span {
@@ -77,8 +77,6 @@
   }
 }
 
-
-
 input:checked + .slider {
   background: $accent-color;
 }
@@ -103,25 +101,25 @@ input:checked + .slider::before {
 body.dark__theme {
   background-color: $background-dark-theme;
   color: $light-text-color;
-   background-size: 1500px;
-   
-   #pagination .tui-page-btn {
-      color: $body-main-color;
-    }
+  background-size: 1500px;
+
+  #pagination .tui-page-btn {
+    color: $body-main-color;
+  }
 
   #pagination .tui-ico-first {
-      background-position: -13px 0;
+    background-position: -13px 0;
   }
-  
+
   #pagination .tui-is-disabled .tui-ico-first {
-      background-position: 0 0;
+    background-position: 0 0;
   }
 
   #pagination .tui-is-disabled .tui-ico-prev {
-      background-position: 0 0;
+    background-position: 0 0;
   }
   #pagination .tui-ico-prev {
-      background-position: -26px -12px;
+    background-position: -26px -12px;
   }
 
   #pagination .tui-ico-next {
@@ -129,20 +127,20 @@ body.dark__theme {
   }
 
   #pagination .tui-is-disabled .tui-ico-next {
-  background-position: -13px -24px;
+    background-position: -13px -24px;
   }
 
   #pagination .tui-is-disabled .tui-ico-last {
-      background-position: 0 -12px;
+    background-position: 0 -12px;
   }
 
   #pagination .tui-ico-last {
-      background-position: -13px -12px;
+    background-position: -13px -12px;
   }
 
   #pagination .tui-page-btn:hover {
-      background-color: $accent-color;
-    }
+    background-color: $accent-color;
+  }
 }
 
 body.dark__theme header,
@@ -152,8 +150,8 @@ body.dark__theme footer {
     2px 4px 16px 0px rgba(255, 85, 0, 0.7);
 }
 
-
-.footer__dark-theme {height: 100px;
+.footer__dark-theme {
+  height: 100px;
   padding-top: 28px;
 
   @include tablet {
@@ -164,9 +162,12 @@ body.dark__theme footer {
     height: 77px;
   }
   background-color: rgb(44, 43, 43);
-  
 }
 
-.footer-paragraph__dark-theme{
+.footer-paragraph__dark-theme {
+  color: $light-text-color;
+}
+
+.switch-title {
   color: $light-text-color;
 }
