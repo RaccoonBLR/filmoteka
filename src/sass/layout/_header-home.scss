@@ -39,6 +39,7 @@
   justify-content: space-between;
   margin-bottom: 56px;
   align-items: baseline;
+  position: relative;
 
   @media screen and (min-width: 768px) {
     margin-bottom: 40px;
@@ -207,6 +208,12 @@ color: $accent-color;
   height: 44px;
   width: auto;
   padding: 0;
+
+  @media screen and (max-width:767px){
+    position: absolute;
+    top: 40px;
+    left:117px;
+  }
 
 p {
     white-space: pre;
