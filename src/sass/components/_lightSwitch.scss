@@ -90,6 +90,23 @@ body.dark__theme {
       color: $body-main-color;
     }
 
+        #pagination .tui-is-disabled .tui-prev {
+          background-color: inherit;
+        }
+    
+        #pagination .tui-prev {
+          background-color: $color__pagination--accent;
+        }
+
+                #pagination .tui-next {
+                  background-color: $color__pagination--accent;
+                }
+        
+                #pagination .tui-is-disabled .tui-next {
+                  background-color: inherit;
+                }
+
+/*
   #pagination .tui-ico-first {
       background-position: -13px 0;
   }
@@ -123,7 +140,7 @@ body.dark__theme {
 
   #pagination .tui-page-btn:hover {
       background-color: $accent-color;
-    }
+    }*/
 }
 
 body.dark__theme header,
