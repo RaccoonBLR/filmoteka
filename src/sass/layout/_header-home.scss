@@ -214,6 +214,14 @@ color: $accent-color;
     position: absolute;
     top: 40px;
     left:117px;
+    &:hover,
+  &:focus {
+      color: #0082D1;
+
+      .color--yellow{
+        color: #FFD100;
+      }
+    }
   }
 
 p {
