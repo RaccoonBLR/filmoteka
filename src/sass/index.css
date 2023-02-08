@@ -1110,4 +1110,5 @@ table {
 .films-catalog {
   display: flex;
   justify-content: center;
+  flex-wrap: wrap;
 }/*# sourceMappingURL=index.css.map */

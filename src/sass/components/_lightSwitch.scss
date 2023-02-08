@@ -2,26 +2,24 @@
   display: flex;
   align-items: center;
   position: absolute;
-  right: 85px;
+  right: 55px;
   top: 175px;
-  @media screen and (max-width: 767px) {
-    right: 55px;
+  @media screen and (min-width: 768px) {
+    right: 30px;
   }
 }
 
 .theme__switch-wrapper span {
   margin-right: 10px;
   font-size: 1rem;
-  @media screen and (max-width: 767px) {
-    margin-right: 0;
-  }
+  margin-right: 0;
 }
 
 .theme__switch {
   display: inline-block;
   height: 28px;
   position: relative;
-  width: 54px;
+  width: 50px;
 }
 
 .theme__switch input {
@@ -48,6 +46,10 @@
   position: absolute;
   transition: 0.4s;
   width: 20px;
+
+  @media screen and (min-width: 768px) {
+  left: 8px;
+}   
 }
 
 input:checked + .slider {
@@ -73,12 +75,22 @@ input:checked + .slider::before {
 input:checked +.slider.round::before {
    @media screen and (max-width: 767px) {
     background-color: $accent-color;
-   }
+       }
   
 }
 
 .slider.round::before {
   border-radius: 50%;
+  position: absolute;
+  @media screen and (max-width: 767px) {
+  left: -50px;
+  top: -30px;
+  }
+  //  @media screen and (max-width: 767px) {
+  // left: -50px;
+  // top: -30px;
+  // }
+    
 }
 
 body.dark__theme {
@@ -90,23 +102,6 @@ body.dark__theme {
       color: $body-main-color;
     }
 
-        #pagination .tui-is-disabled .tui-prev {
-          background-color: inherit;
-        }
-    
-        #pagination .tui-prev {
-          background-color: $color__pagination--accent;
-        }
-
-                #pagination .tui-next {
-                  background-color: $color__pagination--accent;
-                }
-        
-                #pagination .tui-is-disabled .tui-next {
-                  background-color: inherit;
-                }
-
-/*
   #pagination .tui-ico-first {
       background-position: -13px 0;
   }
@@ -140,7 +135,7 @@ body.dark__theme {
 
   #pagination .tui-page-btn:hover {
       background-color: $accent-color;
-    }*/
+    }
 }
 
 body.dark__theme header,

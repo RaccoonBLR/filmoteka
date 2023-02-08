@@ -96,15 +96,27 @@ export function onResultsResetPagination(res) {
 function addCards(data) {
   cards.innerHTML = filmCardMarkupCreator(data);
 }
-
+pagination.on('beforeMove', () => {
+  loader.show();
+});
 
 pagination.on('afterMove', event => {
   movePage(event);
+  loader.hide();
 });
 
 async function movePage(event) {
+   let URL_handler;
 
-      const currentPage = event.page;
+  if (!pagination.currentSearchString) {
+    URL_handler = TrendApi;
+  } else {
+    URL_handler = SearchApi;
+  }
+
+  const currentPage = event.page;
+  URL_handler.page = currentPage;
+      SearchApi.searchQuery = document.querySelector('.search__input').value;
       document.querySelector('.container-catalog').innerHTML = '';
       onSearchTwo();
   
