@@ -12,7 +12,7 @@ export default function addQueuedMarkup() {
   watchedBtn.classList.remove('library_btn--active');
   queueBtn.classList.add('library_btn--active');
 
-  if (queuedMovies.length === 0 || !queuedMovies) {
+  if (!queuedMovies || queuedMovies.length === 0) {
     filmsNotFoundTwo();
     return;
   }
