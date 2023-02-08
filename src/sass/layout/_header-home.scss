@@ -20,9 +20,9 @@
 }
 
 .container--header {
+  position: relative;
   padding-top: 42px;
   padding-bottom: 44px;
-  position: relative;
   @media screen and (min-width: 768px) {
     padding-top: 40px;
     padding-bottom: 45px;
@@ -237,3 +237,4 @@ p {
       }
     }
 }
+

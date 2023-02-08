@@ -2,24 +2,47 @@
   display: flex;
   align-items: center;
   position: absolute;
-  right: 55px;
-  top: 175px;
-  @media screen and (min-width: 768px) {
+  
+  @media screen and (max-width:767px) {
     right: 30px;
+    top: 190px;       
   }
+
+  @media screen and (min-width: 768px) {
+  right: 85px;
+  top: 175px;
+}  
+}
+
+.theme__switch-wrapper__library {
+  display: flex;
+  align-items: center;
+  position: absolute;
+  
+  @media screen and (max-width:767px) {
+    right: 30px;
+    top: 160px;       
+  }
+
+  @media screen and (min-width: 768px) {
+  right: 85px;
+  top: 145px;
+}  
 }
 
 .theme__switch-wrapper span {
   margin-right: 10px;
   font-size: 1rem;
-  margin-right: 0;
+  @media screen and (max-width: 767px) {
+    margin-right: 0;
+  }
 }
 
 .theme__switch {
   display: inline-block;
   height: 28px;
   position: relative;
-  width: 50px;
+  width: 54px;
 }
 
 .theme__switch input {
@@ -46,11 +69,15 @@
   position: absolute;
   transition: 0.4s;
   width: 20px;
-
-  @media screen and (min-width: 768px) {
-  left: 8px;
-}   
 }
+
+.slider__library::before {
+  @media screen and (min-width: 768px) {
+    left: 10px;
+  }
+}
+
+
 
 input:checked + .slider {
   background: $accent-color;
@@ -62,35 +89,15 @@ input:checked + .slider::before {
   }
 }
 
-.slider.round { 
+.slider.round {
   border-radius: 34px;
   @media screen and (max-width: 767px) {
     width: 28px;
-    position: absolute;
-  right: 0;
-  top: 40px;
   }
-}
-
-input:checked +.slider.round::before {
-   @media screen and (max-width: 767px) {
-    background-color: $accent-color;
-       }
-  
 }
 
 .slider.round::before {
   border-radius: 50%;
-  position: absolute;
-  @media screen and (max-width: 767px) {
-  left: -50px;
-  top: -30px;
-  }
-  //  @media screen and (max-width: 767px) {
-  // left: -50px;
-  // top: -30px;
-  // }
-    
 }
 
 body.dark__theme {
@@ -104,6 +111,7 @@ body.dark__theme {
 
   #pagination .tui-is-disabled .tui-prev {
     background-color: inherit;
+
   }
 
   #pagination .tui-prev {
