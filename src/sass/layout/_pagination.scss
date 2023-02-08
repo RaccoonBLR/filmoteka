@@ -22,35 +22,3 @@
 #tui-pagination .tui-is-selected:hover {
     background-color: $color__pagination--accent;
 }
-
-#pagination .tui-page-btn {
-    width: 40px;
-    height: 40px;
-    border-radius: 5px;
-    padding: 13px;
-    border:none;
-    font-size: 12px;
-    position:relative;
-}
-
-#pagination .tui-ico-el {
-    margin: 4px;
-    
-}
-
-#pagination .tui-next .tui-ico-next, #pagination .tui-last .tui-ico-last{
-    position: absolute;
-    top:35%;
-    left:32%;   
-}
-
-#pagination .tui-prev .tui-ico-prev, #pagination .tui-first .tui-ico-first{
-    position: absolute;
-    top:35%;
-    left:32%;   
-    fill:$primary-text-color;
-}
-
-#pagination .tui-page-btn .tui-is-disabled .tui-prev, #pagination .tui-page-btn .tui-is-disabled .tui-first {
-    color:$primary-text-color;
-}
