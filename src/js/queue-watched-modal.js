@@ -14,7 +14,7 @@ watchBtn.addEventListener('click', addWatchJson);
 // Парс если в queue
 function addQueueJson() {
   currentMovies = JSON.parse(localStorage.getItem('queued-movies'));
-  console.log(currentMovies);
+  //console.log(currentMovies);
   return currentMovies;
 }
 // Парс если в watch
@@ -44,7 +44,7 @@ function modalOpen() {
     window.addEventListener('keydown', onEscapeKeyPress);
     // получение id  по нажатому объекту
     const filmId = Number(filmCard.dataset.id);
-    console.log(filmId);
+    //console.log(filmId);
 
     const currentFilm = currentMovies.find(({ id }) => id === filmId);
 
@@ -181,7 +181,7 @@ function onBackdropClick(event) {
   if (event.currentTarget === event.target) {
     document.body.style.overflow = 'auto';
     document.querySelector('[data-modal]').classList.toggle('is-hidden');
-    console.log('close');
+    //console.log('close');
     if (queueBtn.classList.contains('library_btn--active')) {
       addQueuedMarkup();
     }
