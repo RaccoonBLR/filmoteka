@@ -22,11 +22,11 @@ function modalOpen() {
     window.addEventListener('keydown', onEscapeKeyPress);
     // получение id  по нажатому объекту
     const filmId = Number(filmCard.dataset.id);
-    console.log(filmId);
+    //console.log(filmId);
 
     let currentMovies = JSON.parse(localStorage.getItem('current-movies'));
     const currentFilm = currentMovies.find(({ id }) => id === filmId);
-    console.log(currentFilm);
+    //console.log(currentFilm);
 
     // ФУНКЦИЯ РАЗМЕТКИ МОДАЛКИ
     function modalMarkup() {
@@ -161,7 +161,7 @@ function onBackdropClick(event) {
 
 function onEscapeKeyPress(event) {
   document.body.style.overflow = 'auto';
-  console.log(event.code);
+  //console.log(event.code);
   if (event.code === 'Escape') {
     document.querySelector('[data-modal]').classList.toggle('is-hidden');
     window.removeEventListener('keydown', onEscapeKeyPress);

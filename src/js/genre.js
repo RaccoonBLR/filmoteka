@@ -7,7 +7,7 @@ async function addGenre() {
         const objGenres = responses.data.genres;
         localStorage.setItem('Genre', JSON.stringify(objGenres));
 } catch(err) {
-  console.log(err);
+  //console.log(err);
 }
 }
 

@@ -25,7 +25,7 @@ class NewTrendApi {
       onResultsResetPagination(resp);
       return resp.data.results;
     } catch (err) {
-      console.log(err.message);
+      //console.log(err.message);
     } finally {
       loader.hide();
     }
